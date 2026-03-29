@@ -50,12 +50,13 @@ export const metadata: Metadata = {
   // Favicon / Icons
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico?v=2" },
+      { url: "/icon.png?v=2", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-icon.png", type: "image/png" },
+      { url: "/apple-icon.png?v=2", type: "image/png" },
     ],
-    shortcut: "/icon.png",
+    shortcut: "/favicon.ico?v=2",
   },
 
   // Open Graph (Facebook, WhatsApp, LinkedIn sharing)
