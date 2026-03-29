@@ -1,10 +1,15 @@
 import type { OpenNextConfig } from "@opennextjs/aws/types/open-next.js";
 
-const config: OpenNextConfig = {
+const config = {
   default: {
-    runtime: "edge",
-    // @ts-expect-error - cloudflare adapter is not yet in the official OpenNext types
-    adapter: "cloudflare",
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
+    },
   },
 };
 
