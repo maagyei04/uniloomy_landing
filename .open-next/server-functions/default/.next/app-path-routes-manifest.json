@@ -4,5 +4,7 @@
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
   "/privacy/page": "/privacy",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
   "/terms/page": "/terms"
 }
