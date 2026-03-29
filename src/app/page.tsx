@@ -1,24 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import Mockup from "@/components/Mockup";
 import MiniGame from "@/components/MiniGame";
 import { 
   Download, 
-  ChevronRight, 
   Sparkles, 
   Users, 
-  Wallet, 
   GraduationCap, 
   ArrowRight,
-  ShieldCheck,
-  Zap,
-  LayoutGrid
+  BookOpen,
+  ShoppingBag,
+  Briefcase,
+  Tag,
+  Home,
+  MessageCircle,
+  Play,
+  Trophy,
+  Newspaper,
+  UserCheck
 } from "lucide-react";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="relative min-h-screen grid-overlay flex flex-col pt-6 md:pt-10 px-6 md:px-16 lg:px-24">
       {/* Header / Nav */}
@@ -34,7 +38,7 @@ export default function Home() {
         </div>
         <button className="flex items-center gap-2 px-5 py-2.5 bg-white rounded-xl text-primary font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-white/10">
           <Download className="w-4 h-4" />
-          Download
+          Get App
         </button>
       </nav>
 
@@ -54,11 +58,11 @@ export default function Home() {
           </div>
 
           <p className="text-xl md:text-3xl font-black text-white leading-tight max-w-lg mt-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            The complete digital infrastructure for the modern university student.
+            Your all-in-one platform designed for university students.
           </p>
 
           <p className="text-slate-400 text-sm md:text-base max-w-md animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            From academic collaboration to financial empowerment—everything you need to thrive on campus is here.
+            Learn, earn, and connect — not just with your campus, but with students from different universities and campuses across Ghana.
           </p>
 
           <div id="waitlist" className="w-full max-w-md animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -74,7 +78,7 @@ export default function Home() {
                ))}
             </div>
             <div className="text-xs font-bold text-white/50 uppercase tracking-widest flex items-center">
-              Joined by <span className="text-white mx-1">50,000+</span> students
+              Join <span className="text-white mx-1">thousands</span> of students on the waitlist
             </div>
           </div>
         </div>
@@ -89,22 +93,103 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10" />
         
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">One Hub. Infinite Posibilities.</h2>
-          <p className="text-slate-500 uppercase tracking-[0.4em] font-bold text-xs">Everything you need to own your campus life</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">One App. Your Entire Campus Life.</h2>
+          <p className="text-slate-500 uppercase tracking-[0.4em] font-bold text-xs">Everything you need to own your university journey</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { icon: Sparkles, title: "Looms", desc: "Collaborate on projects, share notes, and master your courses together.", color: "text-primary-light" },
-            { icon: Wallet, title: "Marketplace", desc: "The student-exclusive economy. Buy, sell, and trade safely within your campus.", color: "text-white" },
-            { icon: Users, title: "Social Graph", desc: "Build meaningful connections that go beyond the lecture hall.", color: "text-primary-light" },
-            { icon: ShieldCheck, title: "Secure Campus", desc: "A safe, verified environment exclusively for university students.", color: "text-primary-light" },
-            { icon: Zap, title: "Earn Rewards", desc: "Get rewarded for your contributions to the community and academic success.", color: "text-white" },
-            { icon: LayoutGrid, title: "Campus Map", desc: "Never miss an event with our real-time interactive campus hub.", color: "text-primary-light" },
+            {
+              icon: BookOpen,
+              title: "Smart Learning Hub",
+              desc: "Access AI-powered study tools, flashcards, practice tests, slides, pascos, and personalized learning paths to ace your courses.",
+              color: "text-primary-light",
+              tag: "Learn"
+            },
+            {
+              icon: Sparkles,
+              title: "Looms & Rewards",
+              desc: "Earn Looms — our rewards points — for your academic contributions and community engagement. Real value for real effort.",
+              color: "text-white",
+              tag: "Earn"
+            },
+            {
+              icon: ShoppingBag,
+              title: "Student Marketplace",
+              desc: "The student-exclusive economy. Buy, sell, and trade textbooks, gadgets, and more safely within your campus network.",
+              color: "text-primary-light",
+              tag: "Earn"
+            },
+            {
+              icon: Briefcase,
+              title: "Campus Gigs",
+              desc: "Discover student gig opportunities to earn real income while you study. Tutoring, freelancing, and more — all within Uniloomy.",
+              color: "text-white",
+              tag: "Earn"
+            },
+            {
+              icon: Tag,
+              title: "Exclusive Deals",
+              desc: "Unlock exclusive student discounts and deals from brands that care about university students and their financial wellbeing.",
+              color: "text-primary-light",
+              tag: "Earn"
+            },
+            {
+              icon: Users,
+              title: "Social Feed & Stories",
+              desc: "Connect with peers, share experiences, and explore what's happening across different campuses in real-time.",
+              color: "text-white",
+              tag: "Connect"
+            },
+            {
+              icon: MessageCircle,
+              title: "Anonymous Discussions",
+              desc: "Speak freely. Share thoughts, seek advice, and engage in candid campus conversations without revealing your identity.",
+              color: "text-primary-light",
+              tag: "Connect"
+            },
+            {
+              icon: Play,
+              title: "UniClips",
+              desc: "Short-form video content created by and for university students. Learn, laugh, and share moments that define campus life.",
+              color: "text-white",
+              tag: "Connect"
+            },
+            {
+              icon: Home,
+              title: "Student Housing",
+              desc: "Find verified, affordable student accommodation near your campus. No middlemen, no scams — just safe housing.",
+              color: "text-primary-light",
+              tag: "Connect"
+            },
+            {
+              icon: Newspaper,
+              title: "Campus News & Events",
+              desc: "Stay up to date with campus news, upcoming events, concerts, and activities from your university and beyond.",
+              color: "text-white",
+              tag: "Connect"
+            },
+            {
+              icon: UserCheck,
+              title: "Verified Community",
+              desc: "A safe, university-verified environment exclusively for students. Your campus identity, protected and authentic.",
+              color: "text-primary-light",
+              tag: "All"
+            },
+            {
+              icon: Trophy,
+              title: "Study Groups & Sessions",
+              desc: "Join or create study sessions, collaborate on assignments, and master your courses together with classmates.",
+              color: "text-white",
+              tag: "Learn"
+            },
           ].map((feature, i) => (
             <div key={i} className="glass-dark p-10 rounded-[2.5rem] flex flex-col gap-6 hover:bg-white/[0.05] transition-all group border-white/10 hover:border-white/20">
-              <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform ${feature.color}`}>
-                <feature.icon className="w-7 h-7" />
+              <div className="flex items-center justify-between">
+                <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform ${feature.color}`}>
+                  <feature.icon className="w-7 h-7" />
+                </div>
+                <span className="text-[9px] font-black uppercase tracking-widest text-white/20 bg-white/5 px-3 py-1 rounded-full">{feature.tag}</span>
               </div>
               <h3 className="text-xl font-black text-white">{feature.title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
@@ -121,9 +206,9 @@ export default function Home() {
           </h2>
           <div className="flex flex-col gap-12">
             {[
-              { step: "01", title: "Verify Email", desc: "Use your university .edu email to join the waitlist." },
-              { step: "02", title: "Claim Username", desc: "Secure your unique identifier before anyone else." },
-              { step: "03", title: "Start Looming", desc: "Connect with your roommates and course mates instantly." },
+              { step: "01", title: "Join the Waitlist", desc: "Sign up with your email to secure your spot. Early access members get exclusive Looms bonus points on launch." },
+              { step: "02", title: "Verify Your Campus", desc: "Use your university email or student ID to join as a verified member of your campus community." },
+              { step: "03", title: "Start Your Journey", desc: "Explore study tools, connect with peers, discover gigs, and start earning Looms from day one." },
             ].map((step, i) => (
               <div key={i} className="flex gap-6">
                  <span className="text-4xl font-black text-white/10">{step.step}</span>
@@ -138,7 +223,8 @@ export default function Home() {
         <div className="flex-1 w-full bg-gradient-to-br from-primary/20 to-primary-light/10 rounded-[3rem] aspect-square flex items-center justify-center border border-white/5">
            <div className="text-center p-12">
               <GraduationCap className="w-24 h-24 text-primary-light mx-auto mb-6 animate-float" />
-              <p className="text-white font-black text-2xl">Coming to <br/> University of Ghana & KNUST first.</p>
+              <p className="text-white font-black text-2xl">Launching at <br/> University of Ghana <br/> & KNUST first.</p>
+              <p className="text-slate-500 text-sm mt-4 font-medium">More universities coming soon.</p>
            </div>
         </div>
       </section>
@@ -149,8 +235,8 @@ export default function Home() {
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black tracking-widest text-primary-light uppercase mb-6">
              Interactive Campus Hub
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Earn Credits While You Wait</h2>
-          <p className="text-slate-400 font-medium">UniLoomy Runner: High score wins early beta perks.</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Earn Looms While You Wait</h2>
+          <p className="text-slate-400 font-medium">UniLoomy Campus Runner — top scores earn early beta perks & bonus Looms on launch day.</p>
         </div>
         <div className="w-full glass-dark p-10 rounded-[3rem] border-white/10 relative">
            <div className="absolute left-[-10%] bottom-[-10%] w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full -z-10 animate-float-slow" />
@@ -165,13 +251,13 @@ export default function Home() {
           Uni<span className="text-primary-light">Loomy</span>.<br/>
           Your Campus <br/>Redefined.
         </h2>
+        <p className="text-slate-400 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
+          Join thousands of students already on the waitlist to learn smarter, earn bigger, and connect deeper — starting at University of Ghana & KNUST.
+        </p>
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-           <button className="pill bg-white text-black !px-12 !py-5 hover:scale-105 transition-transform flex items-center gap-3">
+           <a href="#waitlist" className="pill bg-white text-black !px-12 !py-5 hover:scale-105 transition-transform flex items-center gap-3 cursor-pointer">
               Join Waitlist Now <ArrowRight className="w-5 h-5" />
-           </button>
-           <button className="pill bg-white/5 border border-white/10 text-white !px-12 !py-5 hover:bg-white/10 transition-colors">
-              About the Mission
-           </button>
+           </a>
         </div>
       </section>
 
