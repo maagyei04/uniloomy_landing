@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
 import Mockup from "@/components/Mockup";
 import MiniGame from "@/components/MiniGame";
@@ -26,7 +27,7 @@ export default function HomePage() {
   return (
     <main className="relative min-h-screen grid-overlay flex flex-col pt-6 md:pt-10 px-6 md:px-16 lg:px-24">
       {/* Header / Nav */}
-      <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-dark px-10 py-5 rounded-full z-50 mb-8 md:mb-12 animate-fade-in shadow-glow">
+      <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-dark px-5 md:px-10 py-4 md:py-5 rounded-full z-50 mb-6 md:mb-12 animate-fade-in shadow-glow">
         <div className="flex items-center">
            <Image src="/assets/uniloomy.png" alt="UniLoomy Logo" width={160} height={44} className="h-8 w-auto object-contain" priority />
         </div>
@@ -43,21 +44,21 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-0 mt-4 md:mt-16 mb-32">
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-8 md:pr-10">
-          <div className="flex flex-col gap-4 animate-fade-in">
-            <div className="pill bg-white text-primary -rotate-3 hover:rotate-0 transition-transform cursor-pointer">
+      <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-0 mt-2 md:mt-16 mb-20 md:mb-32">
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-8 md:pr-10">
+          <div className="flex flex-row flex-wrap justify-center md:justify-start gap-3 animate-fade-in">
+            <div className="pill bg-white text-primary md:-rotate-3 hover:rotate-0 transition-transform cursor-pointer">
               Learn Smarter
             </div>
-            <div className="pill bg-primary text-white rotate-2 hover:rotate-0 transition-transform cursor-pointer ml-4">
+            <div className="pill bg-primary text-white md:rotate-2 hover:rotate-0 transition-transform cursor-pointer">
               Earn Bigger
             </div>
-            <div className="pill bg-primary-light text-white -rotate-1 hover:rotate-0 transition-transform cursor-pointer ml-2">
+            <div className="pill bg-primary-light text-white md:-rotate-1 hover:rotate-0 transition-transform cursor-pointer">
               Connect Deeper
             </div>
           </div>
 
-          <p className="text-xl md:text-3xl font-black text-white leading-tight max-w-lg mt-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-2xl md:text-3xl font-black text-white leading-tight max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Your all-in-one platform designed for university students.
           </p>
 
@@ -264,9 +265,9 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="w-full py-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 text-[11px] text-slate-600 font-bold uppercase tracking-widest mt-auto">
         <span>&copy; {new Date().getFullYear()} UniLoomy Inc. Ghana</span>
-        <div className="flex gap-10 mt-6 md:mt-0">
-          <a href="#" className="hover:text-primary-light transition-colors">Privacy</a>
-          <a href="#" className="hover:text-primary-light transition-colors">Terms</a>
+        <div className="flex gap-8 mt-6 md:mt-0">
+          <Link href="/privacy" className="hover:text-primary-light transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-primary-light transition-colors">Terms</Link>
           <a href="#" className="hover:text-primary-light transition-colors">LinkedIn</a>
           <a href="#" className="hover:text-primary-light transition-colors">X / Twitter</a>
         </div>
