@@ -5,11 +5,11 @@ import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
 import Mockup from "@/components/Mockup";
 import MiniGame from "@/components/MiniGame";
-import { 
-  Download, 
-  Sparkles, 
-  Users, 
-  GraduationCap, 
+import {
+  Download,
+  Sparkles,
+  Users,
+  GraduationCap,
   ArrowRight,
   BookOpen,
   ShoppingBag,
@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* Header / Nav */}
       <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-dark px-5 md:px-10 py-4 md:py-5 rounded-full z-50 mb-6 md:mb-12 animate-fade-in shadow-glow">
         <div className="flex items-center">
-           <Image src="/assets/uniloomy.png" alt="UniLoomy Logo" width={160} height={44} className="h-8 w-auto object-contain" priority />
+          <Image src="/assets/uniloomy.png" alt="UniLoomy Logo" width={160} height={44} className="h-8 w-auto object-contain" priority />
         </div>
         <div className="hidden lg:flex items-center gap-10 text-white/50 font-bold text-xs uppercase tracking-[0.2em]">
           <a href="#features" className="hover:text-white transition-colors">Ecosystem</a>
@@ -72,11 +72,11 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-4 mt-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="flex -space-x-3 overflow-hidden">
-               {[1,2,3,4].map(i => (
-                 <div key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-primary-dark bg-slate-800 flex items-center justify-center text-[10px] font-bold">
-                    {String.fromCharCode(64 + i)}
-                 </div>
-               ))}
+              {[1, 2, 3, 4].map(i => (
+                <div key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-primary-dark bg-slate-800 flex items-center justify-center text-[10px] font-bold">
+                  {String.fromCharCode(64 + i)}
+                </div>
+              ))}
             </div>
             <div className="text-xs font-bold text-white/50 uppercase tracking-widest flex items-center">
               Join <span className="text-white mx-1">thousands</span> of students on the waitlist
@@ -85,14 +85,14 @@ export default function HomePage() {
         </div>
 
         <div className="flex-1 w-full flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: '0.4s' }}>
-           <Mockup />
+          <Mockup />
         </div>
       </section>
 
       {/* Feature Grid Section */}
       <section id="features" className="w-full max-w-7xl mx-auto py-32 border-t border-white/5 relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10" />
-        
+
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4">One App. Your Entire Campus Life.</h2>
           <p className="text-slate-500 uppercase tracking-[0.4em] font-bold text-xs">Everything you need to own your university journey</p>
@@ -212,21 +212,21 @@ export default function HomePage() {
               { step: "03", title: "Start Your Journey", desc: "Explore study tools, connect with peers, discover gigs, and start earning Looms from day one." },
             ].map((step, i) => (
               <div key={i} className="flex gap-6">
-                 <span className="text-4xl font-black text-white/10">{step.step}</span>
-                 <div className="flex flex-col gap-2">
-                    <h4 className="text-xl font-bold text-white">{step.title}</h4>
-                    <p className="text-slate-500 font-medium">{step.desc}</p>
-                 </div>
+                <span className="text-4xl font-black text-white/10">{step.step}</span>
+                <div className="flex flex-col gap-2">
+                  <h4 className="text-xl font-bold text-white">{step.title}</h4>
+                  <p className="text-slate-500 font-medium">{step.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
         <div className="flex-1 w-full bg-gradient-to-br from-primary/20 to-primary-light/10 rounded-[3rem] aspect-square flex items-center justify-center border border-white/5">
-           <div className="text-center p-12">
-              <GraduationCap className="w-24 h-24 text-primary-light mx-auto mb-6 animate-float" />
-              <p className="text-white font-black text-2xl">Launching at <br/> University of Ghana <br/> & KNUST first.</p>
-              <p className="text-slate-500 text-sm mt-4 font-medium">More universities coming soon.</p>
-           </div>
+          <div className="text-center p-12">
+            <GraduationCap className="w-24 h-24 text-primary-light mx-auto mb-6 animate-float" />
+            <p className="text-white font-black text-2xl">Launching at <br /> University of Ghana <br /> & KNUST first.</p>
+            <p className="text-slate-500 text-sm mt-4 font-medium">More universities coming soon.</p>
+          </div>
         </div>
       </section>
 
@@ -234,31 +234,31 @@ export default function HomePage() {
       <section id="game" className="w-full max-w-4xl mx-auto py-32 flex flex-col items-center">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black tracking-widest text-primary-light uppercase mb-6">
-             Interactive Campus Hub
+            Interactive Campus Hub
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Earn Looms While You Wait</h2>
           <p className="text-slate-400 font-medium">UniLoomy Campus Runner — top scores earn early beta perks & bonus Looms on launch day.</p>
         </div>
         <div className="w-full glass-dark p-10 rounded-[3rem] border-white/10 relative">
-           <div className="absolute left-[-10%] bottom-[-10%] w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full -z-10 animate-float-slow" />
-           <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-primary-light/10 blur-3xl rounded-full" />
-           <MiniGame />
+          <div className="absolute left-[-10%] bottom-[-10%] w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full -z-10 animate-float-slow" />
+          <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-primary-light/10 blur-3xl rounded-full" />
+          <MiniGame />
         </div>
       </section>
 
       {/* Final CTA */}
       <section className="w-full max-w-4xl mx-auto py-40 text-center">
         <h2 className="text-5xl md:text-8xl font-black text-white mb-10 tracking-tighter overflow-hidden">
-          Uni<span className="text-primary-light">Loomy</span>.<br/>
-          Your Campus <br/>Redefined.
+          Uni<span className="text-primary-light">Loomy</span>.<br />
+          Your Campus <br />Redefined.
         </h2>
         <p className="text-slate-400 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
           Join thousands of students already on the waitlist to learn smarter, earn bigger, and connect deeper — starting at University of Ghana & KNUST.
         </p>
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-           <a href="#waitlist" className="pill bg-white text-black !px-12 !py-5 hover:scale-105 transition-transform flex items-center gap-3 cursor-pointer">
-              Join Waitlist Now <ArrowRight className="w-5 h-5" />
-           </a>
+          <a href="#waitlist" className="pill bg-white text-black !px-12 !py-5 hover:scale-105 transition-transform flex items-center gap-3 cursor-pointer">
+            Join Waitlist Now <ArrowRight className="w-5 h-5" />
+          </a>
         </div>
       </section>
 
