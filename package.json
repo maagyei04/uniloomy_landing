@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:cf": "next build && opennextjs-cloudflare build",
+    "build": "next build && opennextjs-cloudflare build --skipNextBuild",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build:cf && opennextjs-cloudflare deploy",
-    "preview": "npm run build:cf && opennextjs-cloudflare preview"
+    "deploy": "npm run build && opennextjs-cloudflare deploy",
+    "preview": "npm run build && opennextjs-cloudflare preview"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
