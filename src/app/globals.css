@@ -88,16 +88,17 @@ body {
   background-image: linear-gradient(to right, #4D6FFF, #00C24A);
 }
 
-@utility text-stroke-white {
-  text-shadow: 
-    -1.5px -1.5px 0 #fff, 
-     1.5px -1.5px 0 #fff, 
-    -1.5px  1.5px 0 #fff, 
-     1.5px  1.5px 0 #fff,
-    -1.5px  0     0 #fff,
-     1.5px  0     0 #fff,
-     0     -1.5px 0 #fff,
-     0      1.5px 0 #fff,
-     0 4px 10px rgba(0,0,0,0.1);
+@utility animate-scroll {
+  animation: scroll 40s linear infinite;
 }
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - 2rem)); }
+}
+
+.pause {
+  animation-play-state: paused !important;
+}
+
 

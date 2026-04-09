@@ -32,6 +32,11 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import ParallaxImage from "@/components/ParallaxImage";
 import Typewriter from "@/components/Typewriter";
 import FloatingCollage from "@/components/FloatingCollage";
+import CampusMap from "@/components/CampusMap";
+import LoomVisualizer from "@/components/LoomVisualizer";
+import Testimonials from "@/components/Testimonials";
+import Leaderboard from "@/components/Leaderboard";
+import FAQ from "@/components/FAQ";
 
 // ── Components ─────────────────────────────────────────────────────────
 
@@ -57,8 +62,8 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width  - 0.5) * 10;
-    const y = ((e.clientY - r.top)  / r.height - 0.5) * -10;
+    const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
+    const y = ((e.clientY - r.top) / r.height - 0.5) * -10;
     el.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg) scale(1.02)`;
     el.style.transition = "none";
   };
@@ -85,22 +90,22 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
 
 const NAV_LINKS = [
   { href: "#features", label: "Ecosystem" },
-  { href: "#stats",    label: "Impact" },
-  { href: "#how",      label: "How it Works" },
-  { href: "#game",     label: "Play & Win" },
+  { href: "#stats", label: "Impact" },
+  { href: "#how", label: "How it Works" },
+  { href: "#game", label: "Play & Win" },
   { href: "#download", label: "Get the App" },
 ];
 
 const FEATURES = [
-  { icon: BookOpen,      title: "Smart Learning Hub",        desc: "Access AI-powered study tools, flashcards, practice tests, and past questions to ace your courses.",                                         color: "text-primary-light", tag: "Learn" },
-  { icon: Sparkles,      title: "Looms & Rewards",           desc: "Earn Looms for your academic contributions and community engagement. Real value for real student effort.",                                              color: "text-primary",       tag: "Earn" },
-  { icon: ShoppingBag,   title: "Student Marketplace",       desc: "The student-exclusive economy. Buy, sell, and trade textbooks or gadgets safely within your campus.",                                                 color: "text-primary-light", tag: "Earn" },
-  { icon: Briefcase,     title: "Campus Gigs",               desc: "Discover student gig opportunities to earn real income while you study. Tutoring, freelancing, and more.",                                     color: "text-primary",       tag: "Earn" },
-  { icon: Users,         title: "Social Feed & Stories",     desc: "Connect with peers, share experiences, and explore what's happening across all university campuses.",                                                         color: "text-primary",       tag: "Connect" },
-  { icon: MessageCircle, title: "Anonymous Discussions",     desc: "Speak freely. Share thoughts, seek advice, and engage in candid campus conversations anonymously.",                                               color: "text-primary-light", tag: "Connect" },
-  { icon: Play,          title: "UniClips",                  desc: "Short-form video content created by and for university students. Learn, laugh, and share definir moments.",                                          color: "text-primary",       tag: "Connect" },
-  { icon: Newspaper,     title: "Campus News & Events",      desc: "Stay up to date with campus news, upcoming events, concerts, and activities from your university and beyond.",                                                        color: "text-primary",       tag: "Connect" },
-  { icon: UserCheck,     title: "Verified Community",        desc: "A safe, university-verified environment exclusively for students. Your campus identity, protected.",                                                    color: "text-primary-light", tag: "All" },
+  { icon: BookOpen, title: "Smart Learning Hub", desc: "Access AI-powered study tools, flashcards, practice tests, and past questions to ace your courses.", color: "text-primary-light", tag: "Learn" },
+  { icon: Sparkles, title: "Looms & Rewards", desc: "Earn Looms for your academic contributions and community engagement. Real value for real student effort.", color: "text-primary", tag: "Earn" },
+  { icon: ShoppingBag, title: "Student Marketplace", desc: "The student-exclusive economy. Buy, sell, and trade textbooks or gadgets safely within your campus.", color: "text-primary-light", tag: "Earn" },
+  { icon: Briefcase, title: "Campus Gigs", desc: "Discover student gig opportunities to earn real income while you study. Tutoring, freelancing, and more.", color: "text-primary", tag: "Earn" },
+  { icon: Users, title: "Social Feed & Stories", desc: "Connect with peers, share experiences, and explore what's happening across all university campuses.", color: "text-primary", tag: "Connect" },
+  { icon: MessageCircle, title: "Anonymous Discussions", desc: "Speak freely. Share thoughts, seek advice, and engage in candid campus conversations anonymously.", color: "text-primary-light", tag: "Connect" },
+  { icon: Play, title: "UniClips", desc: "Short-form video content created by and for university students. Learn, laugh, and share definir moments.", color: "text-primary", tag: "Connect" },
+  { icon: Newspaper, title: "Campus News & Events", desc: "Stay up to date with campus news, upcoming events, concerts, and activities from your university and beyond.", color: "text-primary", tag: "Connect" },
+  { icon: UserCheck, title: "Verified Community", desc: "A safe, university-verified environment exclusively for students. Your campus identity, protected.", color: "text-primary-light", tag: "All" },
 ];
 
 export default function LandingPage() {
@@ -110,7 +115,7 @@ export default function LandingPage() {
     <main className="relative min-h-screen bg-white grid-overlay overflow-x-hidden selection:bg-primary-light/30 selection:text-primary">
       <ScrollProgress />
       <CursorSpotlight />
-      
+
       {/* ── Background Elements ───────────────────────────────────────── */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full animate-pulse" />
@@ -142,16 +147,16 @@ export default function LandingPage() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} 
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center gap-8"
         >
           <button className="absolute top-8 right-8 p-2" onClick={() => setMobileMenuOpen(false)}>
             <X className="w-8 h-8 text-slate-900" />
           </button>
           {NAV_LINKS.map(l => (
-            <Link 
-              key={l.label} href={l.href} 
+            <Link
+              key={l.label} href={l.href}
               className="text-3xl font-black text-slate-900"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -163,7 +168,7 @@ export default function LandingPage() {
 
       <section className="w-full max-w-7xl mx-auto flex flex-col items-center pt-8 pb-32 text-center relative px-6 min-h-[800px] flex justify-center overflow-visible">
         <FloatingCollage />
-        
+
         <div className="relative z-10 flex flex-col items-center">
           <ScrollReveal direction="scale">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100/50 backdrop-blur-sm border border-slate-200 rounded-full mb-8 shadow-sm">
@@ -173,7 +178,7 @@ export default function LandingPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8 text-stroke-white">
+            <h1 className="text-4xl md:text-8xl font-black text-slate-900 leading-[1.1] md:leading-[0.9] tracking-tight md:tracking-tighter mb-8 md:text-stroke-white">
               Learn Smarter.<br />
               <span className="text-primary">Earn Bigger.</span><br />
               <span className="text-primary-light">
@@ -182,9 +187,9 @@ export default function LandingPage() {
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.2} className="max-w-2xl">
-            <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-12 text-stroke-white">
-              The super-app designed for the modern Ghanaian student. Study with AI, find the best campus gigs, and connect with your university community.
+          <ScrollReveal delay={0.2} className="max-w-xl mx-auto">
+            <p className="text-slate-500 text-base md:text-xl font-medium leading-relaxed mb-12 md:text-stroke-white px-4 md:px-0">
+              The super-app designed for the modern Ghanaian student. Study with AI, find campus gigs, and connect with your community.
             </p>
           </ScrollReveal>
 
@@ -199,10 +204,10 @@ export default function LandingPage() {
         <ScrollReveal>
           <div className="glass-light shadow-sm rounded-[2.5rem] px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-slate-100 border border-slate-200">
             {[
-              { label: "Active Students",      value: 5200, suffix: "+" },
-              { label: "Partner Universities", value: 6,    suffix: "" },
-              { label: "App Features",         value: 22,   suffix: "+" },
-              { label: "Looms Earn Rate",      value: 10,   suffix: "x" },
+              { label: "Active Students", value: 5200, suffix: "+" },
+              { label: "Partner Universities", value: 6, suffix: "" },
+              { label: "App Features", value: 22, suffix: "+" },
+              { label: "Looms Earn Rate", value: 10, suffix: "x" },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center text-center gap-2 px-6">
                 <span className="text-4xl md:text-5xl font-black text-slate-900">
@@ -220,9 +225,9 @@ export default function LandingPage() {
         {/* Learn */}
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
           <div className="flex-1 w-full">
-            <ParallaxImage 
-              src="/assets/students/learn.png" 
-              alt="Students studying" 
+            <ParallaxImage
+              src="/assets/students/learn.png"
+              alt="Students studying"
               className="aspect-[4/3] rounded-[3rem] shadow-2xl shadow-slate-200"
               overlayLabel="Phase 1: Academic Excellence"
             />
@@ -240,12 +245,12 @@ export default function LandingPage() {
           </ScrollReveal>
         </div>
 
-        {/* Earn */}
+        {/* Earn pillar visual wrapper */}
         <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
           <div className="flex-1 w-full">
-             <ParallaxImage 
-              src="/assets/students/earn.png" 
-              alt="Student working" 
+            <ParallaxImage
+              src="/assets/students/earn.png"
+              alt="Student working"
               className="aspect-[4/3] rounded-[3rem] shadow-2xl shadow-slate-200"
               overlayLabel="Phase 2: Economic Power"
             />
@@ -266,9 +271,9 @@ export default function LandingPage() {
         {/* Connect */}
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
           <div className="flex-1 w-full">
-            <ParallaxImage 
-              src="/assets/students/connect.png" 
-              alt="Campus life" 
+            <ParallaxImage
+              src="/assets/students/connect.png"
+              alt="Campus life"
               className="aspect-[4/3] rounded-[3rem] shadow-2xl shadow-slate-200"
               overlayLabel="Phase 3: Deep Connection"
             />
@@ -287,6 +292,8 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <CampusMap />
+
       {/* ── Features Grid ───────────────────────────────────────────────── */}
       <section id="features" className="w-full max-w-7xl mx-auto py-32 border-t border-slate-200 relative px-6">
         <ScrollReveal className="text-center mb-20">
@@ -296,8 +303,8 @@ export default function LandingPage() {
 
         <ScrollReveal stagger={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {FEATURES.map((feature, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
@@ -311,7 +318,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="mb-4">
-                 <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1 rounded-full">{feature.tag}</span>
+                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1 rounded-full">{feature.tag}</span>
               </div>
               <h3 className="relative text-xl font-black text-slate-900 mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
               <p className="relative text-slate-500 font-medium text-sm leading-relaxed">{feature.desc}</p>
@@ -330,9 +337,9 @@ export default function LandingPage() {
           </ScrollReveal>
           <div className="flex flex-col gap-12">
             {[
-              { step: "01", title: "Download the App",  desc: "Get Uniloomy free from the App Store or Google Play." },
-              { step: "02", title: "Verify Your Campus",  desc: "Provide your university, program details, and student ID card for quick, secure verification." },
-              { step: "03", title: "Start Your Journey",  desc: "Explore study tools, see trending UniClips, join anonymous chats, and stay updated with campus news from day one." },
+              { step: "01", title: "Download the App", desc: "Get Uniloomy free from the App Store or Google Play." },
+              { step: "02", title: "Verify Your Campus", desc: "Provide your university, program details, and student ID card for quick, secure verification." },
+              { step: "03", title: "Start Your Journey", desc: "Explore study tools, see trending UniClips, join anonymous chats, and stay updated with campus news from day one." },
             ].map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.1} direction="left">
                 <div className="flex gap-6 group">
@@ -347,14 +354,7 @@ export default function LandingPage() {
           </div>
         </div>
         <ScrollReveal direction="right" className="flex-1 w-full">
-          <div className="bg-slate-50 rounded-[3rem] aspect-square flex items-center justify-center border border-slate-200 shadow-sm relative overflow-hidden group">
-            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="text-center p-12 relative">
-              <GraduationCap className="w-20 h-20 text-primary-light mx-auto mb-6 transition-transform group-hover:scale-110" />
-              <p className="text-slate-900 font-black text-2xl mb-2">Live across <br /> Ghana's Universities.</p>
-              <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">More coming soon.</p>
-            </div>
-          </div>
+          <Leaderboard />
         </ScrollReveal>
       </section>
 
@@ -373,6 +373,10 @@ export default function LandingPage() {
           </div>
         </ScrollReveal>
       </section>
+
+      <Testimonials />
+
+      <FAQ />
 
       {/* ── Final CTA ────────────────────────────────────────────────────── */}
       <section className="w-full max-w-4xl mx-auto py-40 text-center px-6">
@@ -397,7 +401,7 @@ export default function LandingPage() {
         <span>&copy; {new Date().getFullYear()} Uniloomy Inc. Ghana</span>
         <div className="flex gap-8 mt-6 md:mt-0">
           <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
-          <Link href="/terms"   className="hover:text-primary transition-colors">Terms</Link>
+          <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>
           <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
           <a href="#" className="hover:text-primary transition-colors">Twitter</a>
         </div>
