@@ -63,7 +63,7 @@ export default function Mockup() {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-        className="absolute -left-8 bottom-1/3 w-16 h-16 rounded-[1rem] bg-primary-light/20 backdrop-blur-md border border-white/10 z-10" 
+        className="absolute -left-8 bottom-1/3 w-16 h-16 rounded-[1rem] bg-primary/10 backdrop-blur-md border border-primary/20 z-10 shadow-sm" 
       />
     </motion.div>
   );

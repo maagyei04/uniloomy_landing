@@ -17,13 +17,13 @@ const BASE_URL = "https://uniloomy.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "UniLoomy — Learn Smarter. Earn Bigger. Connect Deeper.",
-    template: "%s | UniLoomy",
+    default: "Uniloomy — Learn Smarter. Earn Bigger. Connect Deeper.",
+    template: "%s | Uniloomy",
   },
   description:
-    "UniLoomy is Ghana's all-in-one university super-app. Access AI study tools, earn Looms rewards, buy & sell in the student marketplace, find campus gigs, and connect with students across universities.",
+    "Uniloomy is Ghana's all-in-one university super-app. Access AI study tools, earn Looms rewards, buy & sell in the student marketplace, find campus gigs, and connect with students across universities.",
   keywords: [
-    "UniLoomy",
+    "Uniloomy",
     "university app Ghana",
     "student app Ghana",
     "campus app",
@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     "learn earn connect",
     "Ghanaian student platform",
   ],
-  authors: [{ name: "UniLoomy Technologies Ltd", url: BASE_URL }],
-  creator: "UniLoomy Technologies Ltd",
-  publisher: "UniLoomy Technologies Ltd",
-  applicationName: "UniLoomy",
+  authors: [{ name: "Uniloomy Technologies Ltd", url: BASE_URL }],
+  creator: "Uniloomy Technologies Ltd",
+  publisher: "Uniloomy Technologies Ltd",
+  applicationName: "Uniloomy",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   category: "Education, Social, Marketplace",
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GH",
     url: BASE_URL,
-    siteName: "UniLoomy",
-    title: "UniLoomy — Learn Smarter. Earn Bigger. Connect Deeper.",
+    siteName: "Uniloomy",
+    title: "Uniloomy — Learn Smarter. Earn Bigger. Connect Deeper.",
     description:
       "Ghana's all-in-one university super-app. Study smarter with AI tools, earn Looms rewards, use the student marketplace, find campus gigs, watch UniClips, and connect with students across universities.",
     images: [
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "UniLoomy — The Super App for University Students",
+        alt: "Uniloomy — The Super App for University Students",
       },
     ],
   },
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@uniloomy",
     creator: "@uniloomy",
-    title: "UniLoomy — Learn Smarter. Earn Bigger. Connect Deeper.",
+    title: "Uniloomy — Learn Smarter. Earn Bigger. Connect Deeper.",
     description:
       "Ghana's all-in-one university super-app. AI study tools, student marketplace, campus gigs, UniClips, Looms rewards, and more.",
     images: ["/og-image.png"],
@@ -140,7 +140,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "UniLoomy",
+              name: "Uniloomy",
               url: BASE_URL,
               logo: `${BASE_URL}/icon.png`,
               description:
@@ -163,7 +163,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "MobileApplication",
-              name: "UniLoomy",
+              name: "Uniloomy",
               operatingSystem: "iOS, Android",
               applicationCategory: "EducationApplication",
               offers: {
@@ -172,7 +172,7 @@ export default function RootLayout({
                 priceCurrency: "GHS",
               },
               description:
-                "UniLoomy is the all-in-one university super-app for Ghanaian students — AI study tools, marketplace, gigs, social feed, UniClips, and Looms rewards.",
+                "Uniloomy is the all-in-one university super-app for Ghanaian students — AI study tools, marketplace, gigs, social feed, UniClips, and Looms rewards.",
             }),
           }}
         />

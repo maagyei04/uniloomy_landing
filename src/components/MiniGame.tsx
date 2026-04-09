@@ -128,7 +128,7 @@ export default function MiniGame() {
     setHighScore(prev => {
       const next = Math.max(prev, scoreRef.current);
       if (scoreRef.current > prev) {
-        confetti({ particleCount: 120, spread: 80, origin: { y: 0.55 }, colors: ["#1A237E", "#4D6FFF", "#ffffff"] });
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.55 }, colors: ["#1A237E", "#4D6FFF", "#94a3b8"] });
       }
       return next;
     });
@@ -160,7 +160,7 @@ export default function MiniGame() {
       if (playerYRef.current >= 0) {
         if (wasInAir) {
           // just landed — only spawn particles when actually coming from air
-          spawnParticles(PLAYER_X + PLAYER_W / 2, gY, "#ffffff");
+          spawnParticles(PLAYER_X + PLAYER_W / 2, gY, "#94a3b8");
         }
         playerYRef.current    = 0;
         velocityRef.current   = 0;
@@ -265,16 +265,16 @@ export default function MiniGame() {
       <div
         ref={containerRef}
         onClick={jump}
-        className="relative w-full h-64 md:h-72 cursor-pointer rounded-2xl overflow-hidden select-none border border-white/5 hover:border-primary/30 transition-colors"
-        style={{ background: "linear-gradient(to bottom, #020617 70%, #0a0f2e 100%)" }}
+        className="relative w-full h-64 md:h-72 cursor-pointer rounded-2xl overflow-hidden select-none border border-slate-200 hover:border-primary/30 transition-colors shadow-inner"
+        style={{ background: "linear-gradient(to bottom, #f1f5f9 20%, #e2e8f0 100%)" }}
       >
         {/* Scrolling ground grid */}
         <div
           className="absolute bottom-0 w-full pointer-events-none"
           style={{
             height: GROUND_H,
-            background: "linear-gradient(to top, rgba(26,35,126,0.25) 0%, transparent 100%)",
-            borderTop: "1px solid rgba(77,111,255,0.2)",
+            background: "linear-gradient(to top, rgba(77,111,255,0.1) 0%, transparent 100%)",
+            borderTop: "1px solid rgba(77,111,255,0.15)",
           }}
         >
           {/* Perspective lines */}
@@ -291,11 +291,11 @@ export default function MiniGame() {
           ))}
         </div>
 
-        {/* Background stars */}
+        {/* Background stars / dust */}
         {Array.from({ length: 14 }).map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-white pointer-events-none"
+            className="absolute rounded-full bg-primary pointer-events-none"
             style={{
               width: Math.random() * 2 + 1,
               height: Math.random() * 2 + 1,
@@ -322,7 +322,7 @@ export default function MiniGame() {
         >
           <Image
             src="/assets/icon.png"
-            alt="UniLoomy"
+            alt="Uniloomy"
             width={PLAYER_W}
             height={PLAYER_H}
             className="w-full h-full object-contain"
@@ -392,14 +392,14 @@ export default function MiniGame() {
         {/* HUD */}
         <div className="absolute top-3 left-4 z-10 pointer-events-none flex flex-col gap-0.5">
           <span className="text-[8px] font-bold text-slate-500 uppercase tracking-[0.2em]">Score</span>
-          <span className="text-2xl font-black text-white leading-none">{score}</span>
+          <span className="text-2xl font-black text-slate-900 leading-none">{score}</span>
         </div>
 
         <div className="absolute top-3 right-4 z-10 pointer-events-none text-right flex flex-col gap-0.5">
           {highScore > 0 && (
             <>
               <span className="text-[8px] font-bold text-slate-500 uppercase tracking-[0.2em]">Best</span>
-              <span className="text-xs font-black text-primary-light">{highScore}</span>
+              <span className="text-xs font-black text-primary">{highScore}</span>
             </>
           )}
         </div>
@@ -443,22 +443,22 @@ export default function MiniGame() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5"
-              style={{ background: "rgba(2,6,23,0.82)", backdropFilter: "blur(8px)" }}
+              style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(4px)" }}
             >
               {gameOver && (
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <span className="text-3xl font-black text-white tracking-tight">CRASHED!</span>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]">
+                  <span className="text-3xl font-black text-slate-900 tracking-tight">CRASHED!</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em]">
                     Score: {score} &nbsp;·&nbsp; Coins: {coinCount}
                   </span>
                   {score === highScore && highScore > 0 && (
-                    <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mt-1">🏆 New High Score!</span>
+                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest mt-1">🏆 New High Score!</span>
                   )}
                 </div>
               )}
               {!gameOver && (
                 <div className="flex flex-col items-center gap-2 text-center">
-                  <span className="text-2xl font-black text-white tracking-tight">UniLoomy Runner</span>
+                  <span className="text-2xl font-black text-slate-900 tracking-tight">Uniloomy Runner</span>
                   <div className="flex gap-3 mt-1 text-[9px] font-bold text-slate-500 uppercase tracking-widest">
                     <span>Space / Tap = Jump</span>
                     <span>·</span>
@@ -470,7 +470,7 @@ export default function MiniGame() {
               )}
               <button
                 onClick={e => { e.stopPropagation(); startGame(); }}
-                className="flex items-center gap-2 px-8 py-3 rounded-full bg-white text-black font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.12)]"
+                className="flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-black text-xs uppercase tracking-widest hover:bg-primary-light hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20"
               >
                 {gameOver ? <RotateCcw className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
                 {gameOver ? "Try Again" : "Start Running"}
@@ -481,13 +481,13 @@ export default function MiniGame() {
       </div>
 
       {/* Controls hint */}
-      <div className="flex items-center justify-center gap-6 mt-4 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+      <div className="flex items-center justify-center gap-6 mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
         <span>Space / Click</span>
-        <span className="text-white/10">|</span>
+        <span className="text-slate-300">|</span>
         <span>Double Jump</span>
-        <span className="text-white/10">|</span>
+        <span className="text-slate-300">|</span>
         <span>Collect Coins</span>
-        <span className="text-white/10">|</span>
+        <span className="text-slate-300">|</span>
         <span>Speed Increases</span>
       </div>
     </div>

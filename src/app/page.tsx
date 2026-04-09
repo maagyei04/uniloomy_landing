@@ -3,12 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import WaitlistForm from "@/components/WaitlistForm";
-import Mockup from "@/components/Mockup";
-import MiniGame from "@/components/MiniGame";
-import CursorSpotlight from "@/components/CursorSpotlight";
-import ScrollReveal from "@/components/ScrollReveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
+import { motion, useScroll, useSpring } from "framer-motion";
 import {
   Download,
   Sparkles,
@@ -29,30 +24,33 @@ import {
   X,
 } from "lucide-react";
 
-const NAV_LINKS = [
-  { href: "#features", label: "Ecosystem" },
-  { href: "#stats",    label: "Impact" },
-  { href: "#how",      label: "How it Works" },
-  { href: "#game",     label: "Play & Win" },
-  { href: "#waitlist", label: "Early Access" },
-];
+import DownloadCTA from "@/components/DownloadCTA";
+import MiniGame from "@/components/MiniGame";
+import CursorSpotlight from "@/components/CursorSpotlight";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import ParallaxImage from "@/components/ParallaxImage";
+import Typewriter from "@/components/Typewriter";
+import FloatingCollage from "@/components/FloatingCollage";
 
-const FEATURES = [
-  { icon: BookOpen,      title: "Smart Learning Hub",        desc: "Access AI-powered study tools, flashcards, practice tests, slides, pascos, and personalized learning paths to ace your courses.",                                         color: "text-primary-light", tag: "Learn" },
-  { icon: Sparkles,      title: "Looms & Rewards",           desc: "Earn Looms — our rewards points — for your academic contributions and community engagement. Real value for real effort.",                                              color: "text-white",         tag: "Earn" },
-  { icon: ShoppingBag,   title: "Student Marketplace",       desc: "The student-exclusive economy. Buy, sell, and trade textbooks, gadgets, and more safely within your campus network.",                                                 color: "text-primary-light", tag: "Earn" },
-  { icon: Briefcase,     title: "Campus Gigs",               desc: "Discover student gig opportunities to earn real income while you study. Tutoring, freelancing, and more — all within Uniloomy.",                                     color: "text-white",         tag: "Earn" },
-  { icon: Tag,           title: "Exclusive Deals",           desc: "Unlock exclusive student discounts and deals from brands that care about university students and their financial wellbeing.",                                          color: "text-primary-light", tag: "Earn" },
-  { icon: Users,         title: "Social Feed & Stories",     desc: "Connect with peers, share experiences, and explore what's happening across different campuses in real-time.",                                                         color: "text-white",         tag: "Connect" },
-  { icon: MessageCircle, title: "Anonymous Discussions",     desc: "Speak freely. Share thoughts, seek advice, and engage in candid campus conversations without revealing your identity.",                                               color: "text-primary-light", tag: "Connect" },
-  { icon: Play,          title: "UniClips",                  desc: "Short-form video content created by and for university students. Learn, laugh, and share moments that define campus life.",                                          color: "text-white",         tag: "Connect" },
-  { icon: Home,          title: "Student Housing",           desc: "Find verified, affordable student accommodation near your campus. No middlemen, no scams — just safe housing.",                                                       color: "text-primary-light", tag: "Connect" },
-  { icon: Newspaper,     title: "Campus News & Events",      desc: "Stay up to date with campus news, upcoming events, concerts, and activities from your university and beyond.",                                                        color: "text-white",         tag: "Connect" },
-  { icon: UserCheck,     title: "Verified Community",        desc: "A safe, university-verified environment exclusively for students. Your campus identity, protected and authentic.",                                                    color: "text-primary-light", tag: "All" },
-  { icon: Trophy,        title: "Study Groups & Sessions",   desc: "Join or create study sessions, collaborate on assignments, and master your courses together with classmates.",                                                        color: "text-white",         tag: "Learn" },
-];
+// ── Components ─────────────────────────────────────────────────────────
 
-// Tilt card component
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-light origin-left z-[100]"
+      style={{ scaleX }}
+    />
+  );
+}
+
 function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -61,17 +59,14 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
     const r = el.getBoundingClientRect();
     const x = ((e.clientX - r.left) / r.width  - 0.5) * 10;
     const y = ((e.clientY - r.top)  / r.height - 0.5) * -10;
-    el.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${y}deg) scale(1.025)`;
+    el.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg) scale(1.02)`;
     el.style.transition = "none";
-    // glow follows cursor
-    el.style.background = `radial-gradient(circle at ${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%, rgba(77,111,255,0.07), transparent 70%)`;
   };
-  const onLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onLeave = () => {
     const el = ref.current;
     if (!el) return;
-    el.style.transform = "";
-    el.style.transition = "transform 0.5s cubic-bezier(.22,.68,0,1.2)";
-    el.style.background = "";
+    el.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
+    el.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
   };
   return (
     <div
@@ -79,140 +74,138 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
       className={className}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={{ willChange: "transform", transition: "transform 0.5s cubic-bezier(.22,.68,0,1.2)" }}
+      style={{ willChange: "transform" }}
     >
       {children}
     </div>
   );
 }
 
-export default function HomePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+// ── Constants ──────────────────────────────────────────────────────────
 
-  // Scroll spy for active nav links
-  useEffect(() => {
-    const ids = NAV_LINKS.map(l => l.href.slice(1));
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
-      },
-      { threshold: 0.4 }
-    );
-    ids.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+const NAV_LINKS = [
+  { href: "#features", label: "Ecosystem" },
+  { href: "#stats",    label: "Impact" },
+  { href: "#how",      label: "How it Works" },
+  { href: "#game",     label: "Play & Win" },
+  { href: "#download", label: "Get the App" },
+];
+
+const FEATURES = [
+  { icon: BookOpen,      title: "Smart Learning Hub",        desc: "Access AI-powered study tools, flashcards, practice tests, and past questions to ace your courses.",                                         color: "text-primary-light", tag: "Learn" },
+  { icon: Sparkles,      title: "Looms & Rewards",           desc: "Earn Looms for your academic contributions and community engagement. Real value for real student effort.",                                              color: "text-primary",       tag: "Earn" },
+  { icon: ShoppingBag,   title: "Student Marketplace",       desc: "The student-exclusive economy. Buy, sell, and trade textbooks or gadgets safely within your campus.",                                                 color: "text-primary-light", tag: "Earn" },
+  { icon: Briefcase,     title: "Campus Gigs",               desc: "Discover student gig opportunities to earn real income while you study. Tutoring, freelancing, and more.",                                     color: "text-primary",       tag: "Earn" },
+  { icon: Users,         title: "Social Feed & Stories",     desc: "Connect with peers, share experiences, and explore what's happening across all university campuses.",                                                         color: "text-primary",       tag: "Connect" },
+  { icon: MessageCircle, title: "Anonymous Discussions",     desc: "Speak freely. Share thoughts, seek advice, and engage in candid campus conversations anonymously.",                                               color: "text-primary-light", tag: "Connect" },
+  { icon: Play,          title: "UniClips",                  desc: "Short-form video content created by and for university students. Learn, laugh, and share definir moments.",                                          color: "text-primary",       tag: "Connect" },
+  { icon: Newspaper,     title: "Campus News & Events",      desc: "Stay up to date with campus news, upcoming events, concerts, and activities from your university and beyond.",                                                        color: "text-primary",       tag: "Connect" },
+  { icon: UserCheck,     title: "Verified Community",        desc: "A safe, university-verified environment exclusively for students. Your campus identity, protected.",                                                    color: "text-primary-light", tag: "All" },
+];
+
+export default function LandingPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen grid-overlay flex flex-col pt-6 md:pt-10 px-6 md:px-16 lg:px-24">
+    <main className="relative min-h-screen bg-white grid-overlay overflow-x-hidden selection:bg-primary-light/30 selection:text-primary">
+      <ScrollProgress />
       <CursorSpotlight />
+      
+      {/* ── Background Elements ───────────────────────────────────────── */}
+      <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-light/5 blur-[150px] rounded-full animate-pulse opacity-60" />
+      </div>
 
       {/* ── Nav ─────────────────────────────────────────────────────────── */}
-      <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-dark px-5 md:px-10 py-4 md:py-5 rounded-full z-50 mb-6 md:mb-12 animate-fade-in shadow-glow">
+      <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-light px-5 md:px-10 py-4 md:py-5 rounded-full z-50 mb-6 md:mb-12 animate-fade-in shadow-sm border border-slate-200 mt-6 mx-6">
         <div className="flex items-center">
-          <Image src="/assets/uniloomy.png" alt="UniLoomy Logo" width={160} height={44} className="h-8 w-auto object-contain" priority />
+          <Image src="/assets/uniloomy.png" alt="Uniloomy Logo" width={160} height={44} className="h-8 w-auto object-contain brightness-0" priority />
         </div>
-        <div className="hidden lg:flex items-center gap-10 text-white/50 font-bold text-xs uppercase tracking-[0.2em]">
+        <div className="hidden lg:flex items-center gap-10 text-slate-500 font-bold text-xs uppercase tracking-[0.2em]">
           {NAV_LINKS.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`transition-colors ${activeSection === l.href.slice(1) ? "text-white" : "hover:text-white"}`}
-            >
+            <Link key={l.label} href={l.href} className="hover:text-primary transition-all duration-300 relative group">
               {l.label}
-              {activeSection === l.href.slice(1) && (
-                <div className="h-0.5 w-full bg-primary-light rounded-full mt-0.5 transition-all" />
-              )}
-            </a>
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
           ))}
         </div>
-        <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 px-5 py-2.5 bg-white rounded-xl text-primary font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-white/10">
-            <Download className="w-4 h-4" />Get App
-          </button>
-          <button
-            className="lg:hidden p-2 rounded-xl glass-dark border border-white/5 text-white/60 hover:text-white transition-colors"
-            onClick={() => setMobileMenuOpen(o => !o)}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        <div className="flex items-center gap-4">
+          <Link href="#download" className="bg-slate-900 text-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-primary transition-all shadow-lg hover:shadow-primary/20">
+            Get App
+          </Link>
+          <button className="lg:hidden p-2 text-slate-600" onClick={() => setMobileMenuOpen(true)}>
+            <Menu className="w-6 h-6" />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 flex flex-col items-center justify-center gap-8" style={{ background: "rgba(2,6,23,0.96)", backdropFilter: "blur(16px)" }}>
-          <button className="absolute top-8 right-8 text-white/60 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-            <X className="w-7 h-7" />
+        <motion.div 
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} 
+          className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center gap-8"
+        >
+          <button className="absolute top-8 right-8 p-2" onClick={() => setMobileMenuOpen(false)}>
+            <X className="w-8 h-8 text-slate-900" />
           </button>
           {NAV_LINKS.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link 
+              key={l.label} href={l.href} 
+              className="text-3xl font-black text-slate-900"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-black text-white/80 hover:text-white transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-        </div>
+        </motion.div>
       )}
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-0 mt-2 md:mt-16 mb-20 md:mb-32">
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-8 md:pr-10">
-          <div className="flex flex-row flex-wrap justify-center md:justify-start gap-3 animate-fade-in">
-            <div className="pill bg-white text-primary md:-rotate-3 hover:rotate-0 transition-transform cursor-pointer">Learn Smarter</div>
-            <div className="pill bg-primary text-white md:rotate-2 hover:rotate-0 transition-transform cursor-pointer">Earn Bigger</div>
-            <div className="pill bg-primary-light text-white md:-rotate-1 hover:rotate-0 transition-transform cursor-pointer">Connect Deeper</div>
-          </div>
-
-          <p className="text-2xl md:text-3xl font-black text-white leading-tight max-w-lg animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Your all-in-one platform designed for university students.
-          </p>
-
-          <p className="text-slate-400 text-sm md:text-base max-w-md animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            Learn, earn, and connect — not just with your campus, but with students from different universities and campuses across Ghana.
-          </p>
-
-          <div id="waitlist" className="w-full max-w-md animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <WaitlistForm />
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-            <div className="flex -space-x-3 overflow-hidden">
-              {[1, 2, 3, 4].map(i => (
-                <div key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-primary-dark bg-slate-800 flex items-center justify-center text-[10px] font-bold">
-                  {String.fromCharCode(64 + i)}
-                </div>
-              ))}
+      <section className="w-full max-w-7xl mx-auto flex flex-col items-center pt-8 pb-32 text-center relative px-6 min-h-[800px] flex justify-center overflow-visible">
+        <FloatingCollage />
+        
+        <div className="relative z-10 flex flex-col items-center">
+          <ScrollReveal direction="scale">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100/50 backdrop-blur-sm border border-slate-200 rounded-full mb-8 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-primary animate-ping" />
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Now Live in Ghana 🇬🇭</span>
             </div>
-            <div className="text-xs font-bold text-white/50 uppercase tracking-widest flex items-center">
-              Join <span className="text-white mx-1">thousands</span> of students on the waitlist
-            </div>
-          </div>
-        </div>
+          </ScrollReveal>
 
-        <div className="flex-1 w-full flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          <Mockup />
+          <ScrollReveal direction="up" delay={0.1}>
+            <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8 text-stroke-white">
+              Learn Smarter.<br />
+              <span className="text-primary">Earn Bigger.</span><br />
+              <span className="text-primary-light">
+                <Typewriter text="Connect Deeper." delay={1000} />
+              </span>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2} className="max-w-2xl">
+            <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-12 text-stroke-white">
+              The super-app designed for the modern Ghanaian student. Study with AI, find the best campus gigs, and connect with your university community.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.3} direction="up" className="w-full max-w-md mb-8">
+            <DownloadCTA />
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ── Stats Bar ───────────────────────────────────────────────────── */}
-      <section id="stats" className="w-full max-w-7xl mx-auto mb-24">
+      <section id="stats" className="w-full max-w-7xl mx-auto mb-32 px-6">
         <ScrollReveal>
-          <div className="glass-dark rounded-3xl px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-white/5 border border-white/5">
+          <div className="glass-light shadow-sm rounded-[2.5rem] px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-slate-100 border border-slate-200">
             {[
-              { label: "Students on Waitlist", value: 5200, suffix: "+" },
-              { label: "Partner Universities",  value: 6,    suffix: "" },
-              { label: "App Features",          value: 22,   suffix: "+" },
-              { label: "Looms Earn Rate",       value: 10,   suffix: "x" },
+              { label: "Active Students",      value: 5200, suffix: "+" },
+              { label: "Partner Universities", value: 6,    suffix: "" },
+              { label: "App Features",         value: 22,   suffix: "+" },
+              { label: "Looms Earn Rate",      value: 10,   suffix: "x" },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center text-center gap-2 px-6">
-                <span className="text-4xl md:text-5xl font-black text-white">
+                <span className="text-4xl md:text-5xl font-black text-slate-900">
                   <AnimatedCounter to={s.value} suffix={s.suffix} />
                 </span>
                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{s.label}</span>
@@ -222,52 +215,131 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── Features Grid ───────────────────────────────────────────────── */}
-      <section id="features" className="w-full max-w-7xl mx-auto py-32 border-t border-white/5 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10" />
-        <ScrollReveal className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">One App. Your Entire Campus Life.</h2>
-          <p className="text-slate-500 uppercase tracking-[0.4em] font-bold text-xs">Everything you need to own your university journey</p>
-        </ScrollReveal>
+      {/* ── Pillars ──────────────────────────────────────────────────────── */}
+      <section className="w-full max-w-7xl mx-auto flex flex-col gap-32 mb-40 px-6">
+        {/* Learn */}
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+          <div className="flex-1 w-full">
+            <ParallaxImage 
+              src="/assets/students/learn.png" 
+              alt="Students studying" 
+              className="aspect-[4/3] rounded-[3rem] shadow-2xl shadow-slate-200"
+              overlayLabel="Phase 1: Academic Excellence"
+            />
+          </div>
+          <ScrollReveal direction="right" className="flex-1 text-center md:text-left">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">Learn <br /><span className="text-primary">Without Limits.</span></h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+              Access AI-powered study tools, practice with past questions, and collaborate in real-time. Uniloomy simplifies your academic path.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3">
+              {["AI Flashcards", "Smart Slides", "Past Questions"].map(t => (
+                <span key={t} className="px-4 py-2 bg-white text-slate-600 rounded-xl text-xs font-bold border border-slate-200 shadow-sm">{t}</span>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {FEATURES.map((feature, i) => (
-            <ScrollReveal key={i} delay={i * 60} direction="up">
-              <TiltCard className="glass-dark p-10 rounded-[2.5rem] flex flex-col gap-6 hover:bg-white/[0.05] transition-all group border-white/10 hover:border-white/20 h-full cursor-default">
-                <div className="flex items-center justify-between">
-                  <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform ${feature.color}`}>
-                    <feature.icon className="w-7 h-7" />
-                  </div>
-                  <span className="text-[9px] font-black uppercase tracking-widest text-white/20 bg-white/5 px-3 py-1 rounded-full">{feature.tag}</span>
-                </div>
-                <h3 className="text-xl font-black text-white">{feature.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
-              </TiltCard>
-            </ScrollReveal>
-          ))}
+        {/* Earn */}
+        <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
+          <div className="flex-1 w-full">
+             <ParallaxImage 
+              src="/assets/students/earn.png" 
+              alt="Student working" 
+              className="aspect-[4/3] rounded-[3rem] shadow-2xl shadow-slate-200"
+              overlayLabel="Phase 2: Economic Power"
+            />
+          </div>
+          <ScrollReveal direction="left" className="flex-1 text-center md:text-left">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">Earn <br /><span className="text-primary-light">Your Way.</span></h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+              Find campus gigs, sell textbooks, and trade gadgets in our marketplace. Plus, earn Looms for your academic contributions.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3">
+              {["Campus Gigs", "Marketplace", "Looms Rewards"].map(t => (
+                <span key={t} className="px-4 py-2 bg-white text-slate-600 rounded-xl text-xs font-bold border border-slate-200 shadow-sm">{t}</span>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Connect */}
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+          <div className="flex-1 w-full">
+            <ParallaxImage 
+              src="/assets/students/connect.png" 
+              alt="Campus life" 
+              className="aspect-[4/3] rounded-[3rem] shadow-2xl shadow-slate-200"
+              overlayLabel="Phase 3: Deep Connection"
+            />
+          </div>
+          <ScrollReveal direction="right" className="flex-1 text-center md:text-left">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">Connect <br /><span className="text-primary">Beyond Borders.</span></h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+              Stay updated with campus news, join anonymous discussions, and see what's trending across all universities in Ghana.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3">
+              {["Social Feed", "Campus News", "UniClips"].map(t => (
+                <span key={t} className="px-4 py-2 bg-white text-slate-600 rounded-xl text-xs font-bold border border-slate-200 shadow-sm">{t}</span>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
+      {/* ── Features Grid ───────────────────────────────────────────────── */}
+      <section id="features" className="w-full max-w-7xl mx-auto py-32 border-t border-slate-200 relative px-6">
+        <ScrollReveal className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">The Complete Ecosystem.</h2>
+          <p className="text-slate-500 uppercase tracking-[0.4em] font-bold text-xs leading-loose">Everything you need to own your university journey</p>
+        </ScrollReveal>
+
+        <ScrollReveal stagger={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {FEATURES.map((feature, i) => (
+            <motion.div 
+              key={i} 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="group glass-light p-8 rounded-[2rem] border border-slate-100 hover:border-primary-light/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 cursor-default relative overflow-hidden h-full"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-[40px] rounded-full group-hover:bg-primary/10 transition-colors" />
+              <div className="relative mb-6">
+                <div className={`w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform ${feature.color} shadow-sm`}>
+                  <feature.icon className="w-6 h-6" />
+                </div>
+              </div>
+              <div className="mb-4">
+                 <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1 rounded-full">{feature.tag}</span>
+              </div>
+              <h3 className="relative text-xl font-black text-slate-900 mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
+              <p className="relative text-slate-500 font-medium text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          ))}
+        </ScrollReveal>
+      </section>
+
       {/* ── How it Works ─────────────────────────────────────────────────── */}
-      <section id="how" className="w-full max-w-5xl mx-auto py-32 flex flex-col md:flex-row items-center gap-20">
+      <section id="how" className="w-full max-w-7xl mx-auto py-32 flex flex-col md:flex-row items-center gap-20 px-6">
         <div className="flex-1">
           <ScrollReveal direction="left">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-10 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 leading-tight">
               Getting Started <br />is <span className="text-primary-light italic">Actually</span> Easy.
             </h2>
           </ScrollReveal>
           <div className="flex flex-col gap-12">
             {[
-              { step: "01", title: "Join the Waitlist",   desc: "Sign up with your email to secure your spot. Early access members get exclusive Looms bonus points on launch." },
-              { step: "02", title: "Verify Your Campus",  desc: "Use your university email or student ID to join as a verified member of your campus community." },
-              { step: "03", title: "Start Your Journey",  desc: "Explore study tools, connect with peers, discover gigs, and start earning Looms from day one." },
+              { step: "01", title: "Download the App",  desc: "Get Uniloomy free from the App Store or Google Play." },
+              { step: "02", title: "Verify Your Campus",  desc: "Provide your university, program details, and student ID card for quick, secure verification." },
+              { step: "03", title: "Start Your Journey",  desc: "Explore study tools, see trending UniClips, join anonymous chats, and stay updated with campus news from day one." },
             ].map((step, i) => (
-              <ScrollReveal key={i} delay={i * 120} direction="left">
-                <div className="flex gap-6 group cursor-default">
-                  <span className="text-4xl font-black text-white/10 group-hover:text-primary-light/30 transition-colors">{step.step}</span>
-                  <div className="flex flex-col gap-2">
-                    <h4 className="text-xl font-bold text-white">{step.title}</h4>
-                    <p className="text-slate-500 font-medium">{step.desc}</p>
+              <ScrollReveal key={i} delay={i * 0.1} direction="left">
+                <div className="flex gap-6 group">
+                  <span className="text-4xl font-black text-slate-200 group-hover:text-primary-light/40 transition-colors">{step.step}</span>
+                  <div className="flex flex-col gap-1">
+                    <h4 className="text-xl font-bold text-slate-900">{step.title}</h4>
+                    <p className="text-slate-600 font-medium">{step.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -275,62 +347,62 @@ export default function HomePage() {
           </div>
         </div>
         <ScrollReveal direction="right" className="flex-1 w-full">
-          <div className="bg-gradient-to-br from-primary/20 to-primary-light/10 rounded-[3rem] aspect-square flex items-center justify-center border border-white/5 hover:border-primary/20 transition-colors">
-            <div className="text-center p-12">
-              <GraduationCap className="w-24 h-24 text-primary-light mx-auto mb-6 animate-float" />
-              <p className="text-white font-black text-2xl">Launching at <br /> University of Ghana <br /> & KNUST first.</p>
-              <p className="text-slate-500 text-sm mt-4 font-medium">More universities coming soon.</p>
+          <div className="bg-slate-50 rounded-[3rem] aspect-square flex items-center justify-center border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="text-center p-12 relative">
+              <GraduationCap className="w-20 h-20 text-primary-light mx-auto mb-6 transition-transform group-hover:scale-110" />
+              <p className="text-slate-900 font-black text-2xl mb-2">Live across <br /> Ghana's Universities.</p>
+              <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">More coming soon.</p>
             </div>
           </div>
         </ScrollReveal>
       </section>
 
       {/* ── Game ─────────────────────────────────────────────────────────── */}
-      <section id="game" className="w-full max-w-4xl mx-auto py-32 flex flex-col items-center">
+      <section id="game" className="w-full max-w-4xl mx-auto py-32 flex flex-col items-center px-6">
         <ScrollReveal className="text-center mb-12">
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black tracking-widest text-primary-light uppercase mb-6">
             Interactive Campus Hub
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Earn Looms While You Wait</h2>
-          <p className="text-slate-400 font-medium">UniLoomy Campus Runner — top scores earn early beta perks & bonus Looms on launch day.</p>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Earn Looms While You Scroll</h2>
+          <p className="text-slate-600 font-medium max-w-lg mx-auto">Uniloomy Campus Runner — rack up high scores to unlock hidden perks.</p>
         </ScrollReveal>
-        <ScrollReveal className="w-full" direction="scale">
-          <div className="w-full glass-dark p-6 md:p-10 rounded-[3rem] border-white/10 relative">
-            <div className="absolute left-[-10%] bottom-[-10%] w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full -z-10 animate-float-slow" />
-            <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-primary-light/10 blur-3xl rounded-full" />
+        <ScrollReveal direction="scale">
+          <div className="w-full bg-white shadow-xl shadow-slate-200/50 p-6 md:p-10 rounded-[3rem] border border-slate-200">
             <MiniGame />
           </div>
         </ScrollReveal>
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────────────────── */}
-      <section className="w-full max-w-4xl mx-auto py-40 text-center">
+      <section className="w-full max-w-4xl mx-auto py-40 text-center px-6">
         <ScrollReveal direction="scale">
-          <h2 className="text-5xl md:text-8xl font-black text-white mb-10 tracking-tighter overflow-hidden">
-            Uni<span className="text-primary-light">Loomy</span>.<br />
-            Your Campus <br />Redefined.
+          <h2 className="text-5xl md:text-8xl font-black text-slate-900 mb-10 tracking-tighter">
+            Uniloomy.<br />
+            Campus <br />Redefined.
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
-            Join thousands of students already on the waitlist to learn smarter, earn bigger, and connect deeper — starting at University of Ghana & KNUST.
+          <p className="text-slate-600 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
+            Join thousands of students learning smarter and earning bigger across Ghana.
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a href="#waitlist" className="pill bg-white text-black !px-12 !py-5 hover:scale-105 transition-transform flex items-center gap-3 cursor-pointer">
-              Join Waitlist Now <ArrowRight className="w-5 h-5" />
+          <div className="flex justify-center">
+            <a href="#download" className="bg-slate-900 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-primary transition-all shadow-xl flex items-center gap-3">
+              Get Started <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </ScrollReveal>
       </section>
 
       {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer className="w-full py-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 text-[11px] text-slate-600 font-bold uppercase tracking-widest mt-auto">
-        <span>&copy; {new Date().getFullYear()} UniLoomy Inc. Ghana</span>
+      <footer className="w-full py-16 flex flex-col md:flex-row items-center justify-between border-t border-slate-200 text-[11px] text-slate-500 font-bold uppercase tracking-widest px-6 mt-auto">
+        <span>&copy; {new Date().getFullYear()} Uniloomy Inc. Ghana</span>
         <div className="flex gap-8 mt-6 md:mt-0">
-          <Link href="/privacy" className="hover:text-primary-light transition-colors">Privacy</Link>
-          <Link href="/terms"   className="hover:text-primary-light transition-colors">Terms</Link>
-          <a href="#" className="hover:text-primary-light transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-primary-light transition-colors">X / Twitter</a>
+          <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
+          <Link href="/terms"   className="hover:text-primary transition-colors">Terms</Link>
+          <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
+          <a href="#" className="hover:text-primary transition-colors">Twitter</a>
         </div>
       </footer>
     </main>
   );
 }
+

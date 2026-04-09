@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy Policy | UniLoomy",
-  description: "UniLoomy's Privacy Policy — how we collect, use, and protect your data.",
+  title: "Privacy Policy | Uniloomy",
+  description: "Uniloomy's Privacy Policy — how we collect, use, and protect your data.",
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#020617]/80 backdrop-blur-xl px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/">
-            <Image src="/assets/uniloomy.png" alt="UniLoomy" width={120} height={32} className="h-6 w-auto" />
+            <Image src="/assets/uniloomy.png" alt="Uniloomy" width={120} height={32} className="h-6 w-auto" />
           </Link>
           <Link href="/" className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors">
             ← Back to Home
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           <p className="text-slate-400 text-sm">Last Updated: {lastUpdated}</p>
           <div className="mt-8 p-6 rounded-2xl bg-white/[0.03] border border-white/5">
             <p className="text-slate-300 leading-relaxed text-sm">
-              UniLoomy Technologies Ltd (&quot;UniLoomy&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your personal data and privacy rights. This Privacy Policy explains how we collect, use, store, and share information when you use our mobile application and website (collectively, the &quot;Service&quot;). This policy complies with Ghana&apos;s <strong>Data Protection Act, 2012 (Act 843)</strong>, the <strong>Electronic Transactions Act, 2008 (Act 772)</strong>, and applicable international data protection standards including the EU General Data Protection Regulation (GDPR) where applicable.
+              Uniloomy Technologies Ltd (&quot;Uniloomy&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your personal data and privacy rights. This Privacy Policy explains how we collect, use, store, and share information when you use our mobile application and website (collectively, the &quot;Service&quot;). This policy complies with Ghana&apos;s <strong>Data Protection Act, 2012 (Act 843)</strong>, the <strong>Electronic Transactions Act, 2008 (Act 772)</strong>, and applicable international data protection standards including the EU General Data Protection Regulation (GDPR) where applicable.
             </p>
           </div>
         </div>
@@ -41,8 +41,8 @@ export default function PrivacyPage() {
         <div className="space-y-10 text-sm leading-relaxed text-slate-300">
 
           <Section title="1. Who We Are">
-            <p><strong className="text-white">UniLoomy Technologies Ltd</strong> is a Ghanaian technology company registered under the Companies Act, 2019 (Act 992) of Ghana. Our registered office is in Ghana. We operate a university student super-app designed to facilitate learning, economic opportunity, and social connection for university students.</p>
-            <p className="mt-3">For data protection purposes, UniLoomy is the <em>data controller</em> of your personal information.</p>
+            <p><strong className="text-white">Uniloomy Technologies Ltd</strong> is a Ghanaian technology company registered under the Companies Act, 2019 (Act 992) of Ghana. Our registered office is in Ghana. We operate a university student super-app designed to facilitate learning, economic opportunity, and social connection for university students.</p>
+            <p className="mt-3">For data protection purposes, Uniloomy is the <em>data controller</em> of your personal information.</p>
             <p className="mt-3"><strong className="text-white">Contact:</strong> privacy@uniloomy.com</p>
           </Section>
 
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
 
           <Section title="5. International Data Transfers">
             <p>
-              UniLoomy is based in Ghana. Our service providers may process data outside of Ghana, including in the European Economic Area (EEA), the United Kingdom, and the United States. Where such transfers occur, we ensure appropriate safeguards are in place in accordance with Ghana&apos;s Data Protection Act (s. 43) and GDPR Chapter V, including Standard Contractual Clauses (SCCs) or equivalent mechanisms.
+              Uniloomy is based in Ghana. Our service providers may process data outside of Ghana, including in the European Economic Area (EEA), the United Kingdom, and the United States. Where such transfers occur, we ensure appropriate safeguards are in place in accordance with Ghana&apos;s Data Protection Act (s. 43) and GDPR Chapter V, including Standard Contractual Clauses (SCCs) or equivalent mechanisms.
             </p>
           </Section>
 
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
           </Section>
 
           <Section title="10. Children's Privacy">
-            <p>UniLoomy is designed for university students aged 16 and over. We do not knowingly collect personal data from children under 16. If we learn that we have inadvertently collected data from a child under 16, we will delete it promptly. If you believe a minor has provided us data, contact us at <strong className="text-white">privacy@uniloomy.com</strong>.</p>
+            <p>Uniloomy is designed for university students aged 16 and over. We do not knowingly collect personal data from children under 16. If we learn that we have inadvertently collected data from a child under 16, we will delete it promptly. If you believe a minor has provided us data, contact us at <strong className="text-white">privacy@uniloomy.com</strong>.</p>
           </Section>
 
           <Section title="11. Changes to This Policy">
@@ -172,7 +172,7 @@ export default function PrivacyPage() {
 
           <Section title="12. Contact Us">
             <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2">
-              <p><strong className="text-white">UniLoomy Technologies Ltd</strong></p>
+              <p><strong className="text-white">Uniloomy Technologies Ltd</strong></p>
               <p>Ghana</p>
               <p>Email: <a href="mailto:privacy@uniloomy.com" className="text-blue-400 underline">privacy@uniloomy.com</a></p>
               <p>For DPC complaints (Ghana): <a href="https://www.dataprotection.org.gh" target="_blank" rel="noreferrer" className="text-blue-400 underline">dataprotection.org.gh</a></p>
@@ -182,7 +182,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-bold uppercase tracking-widest">
-          <span>&copy; {new Date().getFullYear()} UniLoomy Technologies Ltd. Ghana</span>
+          <span>&copy; {new Date().getFullYear()} Uniloomy Technologies Ltd. Ghana</span>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-blue-500">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

@@ -23,16 +23,16 @@
 }
 
 :root {
-  --background: #020617;
-  --foreground: #ffffff;
+  --background: #fafafa;
+  --foreground: #0f172a;
 }
 
 body {
   background: var(--background);
   background-image: 
-    radial-gradient(circle at 100% 0%, rgba(26, 35, 126, 0.4), transparent 40%),
-    radial-gradient(circle at 10% 50%, rgba(26, 35, 126, 0.2), transparent 30%),
-    linear-gradient(to bottom, #020617, #01040a);
+    radial-gradient(circle at 100% 0%, rgba(77, 111, 255, 0.15), transparent 40%),
+    radial-gradient(circle at 10% 50%, rgba(26, 35, 126, 0.08), transparent 30%),
+    linear-gradient(to bottom, #fafafa, #f1f5f9);
   background-attachment: fixed;
   color: var(--foreground);
   font-family: inherit;
@@ -44,8 +44,8 @@ body {
 @utility grid-overlay {
   background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
 @utility pill {
@@ -53,7 +53,7 @@ body {
   border-radius: 9999px;
   font-weight: 800;
   font-size: 0.875rem;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -68,17 +68,18 @@ body {
   }
 }
 
-
-@utility glass-dark {
-  background: rgba(0, 0, 0, 0.4);
+@utility glass-light {
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.04);
 }
 
 @utility shadow-glow {
-  box-shadow: 0 0 40px rgba(26, 35, 126, 0.2);
+  box-shadow: 0 0 40px rgba(77, 111, 255, 0.15);
 }
+
 
 @utility text-gradient {
   background-clip: text;
@@ -86,3 +87,17 @@ body {
   color: transparent;
   background-image: linear-gradient(to right, #4D6FFF, #00C24A);
 }
+
+@utility text-stroke-white {
+  text-shadow: 
+    -1.5px -1.5px 0 #fff, 
+     1.5px -1.5px 0 #fff, 
+    -1.5px  1.5px 0 #fff, 
+     1.5px  1.5px 0 #fff,
+    -1.5px  0     0 #fff,
+     1.5px  0     0 #fff,
+     0     -1.5px 0 #fff,
+     0      1.5px 0 #fff,
+     0 4px 10px rgba(0,0,0,0.1);
+}
+
