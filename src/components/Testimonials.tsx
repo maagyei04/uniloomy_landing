@@ -26,7 +26,7 @@ export default function Testimonials() {
       <div className="flex flex-col gap-8">
         {/* Row 1 - Left to Right */}
         <div className="flex overflow-hidden group">
-          <div className="flex gap-6 md:gap-8 animate-scroll hover:pause px-6">
+          <div className="flex gap-6 md:gap-8 animate-scroll md:hover:pause px-6">
             {[...REVIEWS, ...REVIEWS].map((review, i) => (
               <div 
                 key={i} 

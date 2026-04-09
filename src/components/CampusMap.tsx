@@ -1,17 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap } from "lucide-react";
+import Image from "next/image";
+import { MapPin } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const UNIVERSITIES = [
-  { id: "ug", name: "University of Ghana", location: "Legon", x: "72%", y: "83%" },
-  { id: "knust", name: "KNUST", location: "Kumasi", x: "42%", y: "65%" },
+  { 
+    id: "ug", 
+    name: "University of Ghana", 
+    location: "Legon", 
+    x: "72%", 
+    y: "83%",
+    logo: "/assets/universities/ug.png"
+  },
+  { 
+    id: "knust", 
+    name: "KNUST", 
+    location: "Kumasi", 
+    x: "42%", 
+    y: "65%",
+    logo: "/assets/universities/knust.png"
+  },
 ];
 
 export default function CampusMap() {
   return (
-    <section id="network" className="w-full max-w-7xl mx-auto py-32 px-6 overflow-hidden">
+    <section id="network" className="w-full max-w-7xl mx-auto py-16 md:py-32 px-6 overflow-hidden">
       <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
         
         {/* Map Container */}
@@ -37,9 +52,15 @@ export default function CampusMap() {
               style={{ left: uni.x, top: uni.y }}
             >
               <div className="relative flex items-center justify-center">
-                <div className="absolute w-8 h-8 bg-primary/20 rounded-full animate-ping scale-150" />
-                <div className="relative bg-white p-2 rounded-full shadow-lg border-2 border-primary group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-4 h-4 text-primary" />
+                <div className="absolute w-10 h-10 bg-primary/20 rounded-full animate-ping scale-150" />
+                <div className="relative bg-white w-10 h-10 rounded-full shadow-lg border-2 border-primary group-hover:scale-110 transition-transform overflow-hidden p-1 flex items-center justify-center">
+                  <Image 
+                    src={uni.logo} 
+                    alt={uni.name} 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 
                 {/* Tooltip */}
