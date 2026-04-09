@@ -14,7 +14,7 @@ const REVIEWS = [
 
 export default function Testimonials() {
   return (
-    <section className="w-full py-32 bg-slate-50/50 overflow-hidden">
+    <section className="w-full py-16 md:py-32 bg-slate-50/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
           <MessageSquare className="w-4 h-4 text-primary" />

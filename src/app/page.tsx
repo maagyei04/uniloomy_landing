@@ -123,7 +123,7 @@ export default function LandingPage() {
       </div>
 
       {/* ── Nav ─────────────────────────────────────────────────────────── */}
-      <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-light px-5 md:px-10 py-4 md:py-5 rounded-full z-50 mb-6 md:mb-12 animate-fade-in shadow-sm border border-slate-200 mt-6 mx-6">
+      <nav className="flex items-center justify-between w-full max-w-7xl mx-auto glass-light px-5 md:px-10 py-4 md:py-5 rounded-full z-50 mb-2 md:mb-12 animate-fade-in shadow-sm border border-slate-200 mt-4 md:mt-6 mx-6">
         <div className="flex items-center">
           <Image src="/assets/uniloomy.png" alt="Uniloomy Logo" width={160} height={44} className="h-8 w-auto object-contain brightness-0" priority />
         </div>
@@ -166,8 +166,9 @@ export default function LandingPage() {
         </motion.div>
       )}
 
-      <section className="w-full max-w-7xl mx-auto flex flex-col items-center pt-8 pb-32 text-center relative px-6 min-h-[800px] flex justify-center overflow-visible">
+      <section className="w-full max-w-7xl mx-auto flex flex-col items-center pt-2 md:pt-8 pb-12 md:pb-32 text-center relative px-6 min-h-[500px] md:min-h-[800px] flex justify-center overflow-visible">
         <FloatingCollage />
+
 
         <div className="relative z-10 flex flex-col items-center">
           <ScrollReveal direction="scale">
@@ -200,9 +201,9 @@ export default function LandingPage() {
       </section>
 
       {/* ── Stats Bar ───────────────────────────────────────────────────── */}
-      <section id="stats" className="w-full max-w-7xl mx-auto mb-32 px-6">
+      <section id="stats" className="w-full max-w-7xl mx-auto mb-16 md:mb-32 px-6">
         <ScrollReveal>
-          <div className="glass-light shadow-sm rounded-[2.5rem] px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-slate-100 border border-slate-200">
+          <div className="glass-light shadow-sm rounded-[2.5rem] px-6 py-8 md:px-8 md:py-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-slate-100 border border-slate-200">
             {[
               { label: "Active Students", value: 5200, suffix: "+" },
               { label: "Partner Universities", value: 6, suffix: "" },
@@ -221,7 +222,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Pillars ──────────────────────────────────────────────────────── */}
-      <section className="w-full max-w-7xl mx-auto flex flex-col gap-32 mb-40 px-6">
+      <section className="w-full max-w-7xl mx-auto flex flex-col gap-16 md:gap-32 mb-20 md:mb-40 px-6">
         {/* Learn */}
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
           <div className="flex-1 w-full">
@@ -295,7 +296,7 @@ export default function LandingPage() {
       <CampusMap />
 
       {/* ── Features Grid ───────────────────────────────────────────────── */}
-      <section id="features" className="w-full max-w-7xl mx-auto py-32 border-t border-slate-200 relative px-6">
+      <section id="features" className="w-full max-w-7xl mx-auto py-16 md:py-32 border-t border-slate-200 relative px-6">
         <ScrollReveal className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">The Complete Ecosystem.</h2>
           <p className="text-slate-500 uppercase tracking-[0.4em] font-bold text-xs leading-loose">Everything you need to own your university journey</p>
@@ -328,7 +329,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── How it Works ─────────────────────────────────────────────────── */}
-      <section id="how" className="w-full max-w-7xl mx-auto py-32 flex flex-col md:flex-row items-center gap-20 px-6">
+      <section id="how" className="w-full max-w-7xl mx-auto py-16 md:py-32 flex flex-col md:flex-row items-center gap-20 px-6">
         <div className="flex-1">
           <ScrollReveal direction="left">
             <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 leading-tight">
@@ -359,7 +360,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Game ─────────────────────────────────────────────────────────── */}
-      <section id="game" className="w-full max-w-4xl mx-auto py-32 flex flex-col items-center px-6">
+      <section id="game" className="w-full max-w-4xl mx-auto py-16 md:py-32 flex flex-col items-center px-6">
         <ScrollReveal className="text-center mb-12">
           <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black tracking-widest text-primary-light uppercase mb-6">
             Interactive Campus Hub
@@ -379,7 +380,7 @@ export default function LandingPage() {
       <FAQ />
 
       {/* ── Final CTA ────────────────────────────────────────────────────── */}
-      <section className="w-full max-w-4xl mx-auto py-40 text-center px-6">
+      <section className="w-full max-w-4xl mx-auto py-20 md:py-40 text-center px-6">
         <ScrollReveal direction="scale">
           <h2 className="text-5xl md:text-8xl font-black text-slate-900 mb-10 tracking-tighter">
             Uniloomy.<br />
