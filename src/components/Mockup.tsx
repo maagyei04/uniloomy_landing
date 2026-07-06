@@ -16,7 +16,7 @@ export default function Mockup() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="relative z-0 -mr-16 md:-mr-24 rotate-[-8deg] translate-y-4"
       >
-        <PhoneFrame src="/assets/screenshots/earnloooms.png" alt="Uniloomy Earn Looms screen" className="w-[150px] md:w-[190px] shadow-xl" />
+        <PhoneFrame src="/assets/screenshots/studyhub.png" alt="Uniloomy Earn Looms screen" className="w-[150px] md:w-[190px] shadow-xl" />
       </motion.div>
 
       <motion.div
@@ -24,7 +24,7 @@ export default function Mockup() {
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         className="relative z-10"
       >
-        <PhoneFrame src="/assets/screenshots/studyhub.png" alt="Uniloomy Study Hub screen" className="w-[190px] md:w-[240px]" priority />
+        <PhoneFrame src="/assets/screenshots/home.png" alt="Uniloomy Study Hub screen" className="w-[190px] md:w-[240px]" priority />
       </motion.div>
 
       <motion.div
