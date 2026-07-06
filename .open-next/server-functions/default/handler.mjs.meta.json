@@ -3633,11 +3633,6 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js": {
-      "bytes": 316,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/.next/server/app/terms/page_client-reference-manifest.js": {
       "bytes": 8133,
       "imports": [],
@@ -3653,18 +3648,23 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
-      "bytes": 5924,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
       "bytes": 6208,
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
+      "bytes": 5924,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js": {
+      "bytes": 316,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-      "bytes": 26589,
+      "bytes": 26337,
       "imports": [
         {
           "path": "path",
@@ -3692,11 +3692,6 @@
           "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/app/terms/page_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/terms/page_client-reference-manifest.js"
@@ -3712,14 +3707,19 @@
           "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/robots.txt/route_client-reference-manifest.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js",
+          "path": ".open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
+          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js"
         }
       ],
       "format": "cjs"
@@ -4201,8 +4201,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0v73tbn._.js": {
-      "bytes": 4104,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0vd.593._.js": {
+      "bytes": 3773,
       "imports": [],
       "format": "cjs"
     },
@@ -4546,7 +4546,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_0v2eskp._.js": {
-      "bytes": 194755,
+      "bytes": 181691,
       "imports": [],
       "format": "cjs"
     },
@@ -4765,9 +4765,9 @@
           "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0dwf-ze._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0v73tbn._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0vd.593._.js",
           "kind": "require-call",
-          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0v73tbn._.js"
+          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0vd.593._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0zq0aps._.js",
@@ -5016,9 +5016,9 @@
           "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0dwf-ze._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0v73tbn._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0vd.593._.js",
           "kind": "require-call",
-          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0v73tbn._.js"
+          "original": "/Users/michantech/Documents/Internal_Projects/uniloomy-landing/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0vd.593._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0zq0aps._.js",
@@ -7825,9 +7825,6 @@
         ".open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js": {
           "bytesInOutput": 7028
         },
-        ".open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js": {
-          "bytesInOutput": 463
-        },
         ".open-next/server-functions/default/.next/server/app/terms/page_client-reference-manifest.js": {
           "bytesInOutput": 7772
         },
@@ -7835,16 +7832,19 @@
           "bytesInOutput": 7780
         },
         ".open-next/server-functions/default/.next/server/app/robots.txt/route_client-reference-manifest.js": {
-          "bytesInOutput": 462
-        },
-        ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
-          "bytesInOutput": 5688
+          "bytesInOutput": 461
         },
         ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
           "bytesInOutput": 5955
         },
+        ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
+          "bytesInOutput": 5688
+        },
+        ".open-next/server-functions/default/.next/server/app/sitemap.xml/route_client-reference-manifest.js": {
+          "bytesInOutput": 464
+        },
         ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-          "bytesInOutput": 17839
+          "bytesInOutput": 17615
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__02g_-ps._.js": {
           "bytesInOutput": 1572
@@ -7918,8 +7918,8 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0dwf-ze._.js": {
           "bytesInOutput": 1545
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0v73tbn._.js": {
-          "bytesInOutput": 4236
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0vd.593._.js": {
+          "bytesInOutput": 3905
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0zq0aps._.js": {
           "bytesInOutput": 4627
@@ -7982,7 +7982,7 @@
           "bytesInOutput": 2129
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_0v2eskp._.js": {
-          "bytesInOutput": 213567
+          "bytesInOutput": 198413
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_09-gtaw.js": {
           "bytesInOutput": 249
@@ -8216,7 +8216,7 @@
           "bytesInOutput": 59694
         }
       },
-      "bytes": 3546157
+      "bytes": 3530448
     }
   }
 }

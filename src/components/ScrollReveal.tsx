@@ -26,7 +26,7 @@ const variants: any = {
     transition: {
       delay: custom.delay,
       duration: 0.7,
-      ease: "easeOut",
+      ease: [0.22, 1, 0.36, 1],
       staggerChildren: custom.stagger,
     },
   }),

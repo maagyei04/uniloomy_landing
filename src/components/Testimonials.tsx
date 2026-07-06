@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { MessageSquare, Quote } from "lucide-react";
 
 const REVIEWS = [
-  { name: "Kofi A.", uni: "UG Legon", text: "Finally an app that understands Ghanaian student life. The anonymous posts are pure gold! 😂", color: "bg-blue-50" },
-  { name: "Ama S.", uni: "KNUST", text: "Finding campus gigs has never been this easy. Earned my first 500 Looms last week! 💰", color: "bg-green-50" },
-  { name: "Kwame B.", uni: "UCC", text: "The study tools are top-notch. Uniloomy is basically my new best friend for exams. 📚", color: "bg-purple-50" },
-  { name: "Yaa P.", uni: "Ashesi", text: "Connecting with other campuses is so smooth. Love the UniClips feature! 🎬", color: "bg-pink-50" },
-  { name: "Ekow R.", uni: "UPSA", text: "The marketplace is a lifesaver. Sold my old textbooks in 2 hours flat. ⚡", color: "bg-orange-50" },
-  { name: "Abena M.", uni: "GIMPA", text: "Secure, fun, and actually useful. Best student app in Ghana, no cap. 🧢🔥", color: "bg-teal-50" },
+  { name: "Kofi A.", uni: "UG Legon", text: "Finally an app that understands Ghanaian student life. The anonymous posts are honest in a way nothing else is.", color: "bg-blue-50" },
+  { name: "Ama S.", uni: "KNUST", text: "Finding campus gigs has never been this easy. Earned my first 500 Looms in a week.", color: "bg-green-50" },
+  { name: "Kwame B.", uni: "UCC", text: "The study tools are genuinely useful for exam prep. It's become part of how I study.", color: "bg-purple-50" },
+  { name: "Yaa P.", uni: "Ashesi", text: "Connecting with students at other campuses is so smooth. I actually look forward to UniClips.", color: "bg-pink-50" },
+  { name: "Ekow R.", uni: "UPSA", text: "The marketplace is a lifesaver. Sold my old textbooks in a couple of hours.", color: "bg-orange-50" },
+  { name: "Abena M.", uni: "GIMPA", text: "Secure, well-built, and actually useful. The best student app I've used in Ghana.", color: "bg-teal-50" },
 ];
 
 export default function Testimonials() {

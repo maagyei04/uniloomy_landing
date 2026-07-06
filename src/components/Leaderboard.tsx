@@ -26,7 +26,7 @@ export default function Leaderboard() {
         </div>
         <div className="md:text-right">
           <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Total Distributed</p>
-          <p className="text-lg md:text-xl font-black text-primary">2.5M Looms 💎</p>
+          <p className="text-lg md:text-xl font-black text-primary">2.5M Looms</p>
         </div>
       </div>
 
