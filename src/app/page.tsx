@@ -232,9 +232,12 @@ export default function LandingPage() {
 
       {/* ── Hero ────────────────────────────────────────────────────────── */}
       <section className="w-full max-w-[92rem] mx-auto px-4 md:px-8 pt-6 md:pt-8">
-        <div className="relative z-0 isolate dot-pattern bg-white rounded-[2rem] md:rounded-[3rem] px-6 pt-10 pb-6 md:pt-14 md:pb-8 flex flex-col items-center text-center overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-gradient-to-b from-primary/[0.03] via-primary-light/[0.02] to-transparent" />
-          <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[70%] aspect-square bg-primary/[0.05] blur-[100px] rounded-full z-0" />
+        <div className="relative isolate rounded-[2rem] md:rounded-[3rem] px-6 pt-10 pb-6 md:pt-14 md:pb-8 flex flex-col items-center text-center">
+          {/* Background layer — clipped to the panel shape, kept separate so the phone mockup below can overflow it freely */}
+          <div className="absolute inset-0 z-0 rounded-[2rem] md:rounded-[3rem] dot-pattern bg-white overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-primary-light/[0.02] to-transparent" />
+            <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[70%] aspect-square bg-primary/[0.05] blur-[100px] rounded-full" />
+          </div>
 
           <div className="relative z-10 w-full flex flex-col items-center">
             <ScrollReveal direction="up">
@@ -269,11 +272,12 @@ export default function LandingPage() {
                 <span className="text-[11px] font-bold text-slate-400">+4 more</span>
               </div>
             </ScrollReveal>
-
-            <ScrollReveal direction="scale" delay={0.4} className="w-full flex justify-center">
-              <Mockup />
-            </ScrollReveal>
           </div>
+
+          {/* Mockup sits outside the clipped background layer so it can overflow the panel edges on mobile */}
+          <ScrollReveal direction="scale" delay={0.4} className="relative z-10 w-full flex justify-center overflow-visible">
+            <Mockup />
+          </ScrollReveal>
         </div>
       </section>
 
