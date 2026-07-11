@@ -270,7 +270,7 @@ export default function LandingPage() {
                     <Image src={u.src} alt={u.alt} width={32} height={32} className="object-contain w-6 h-6" />
                   </div>
                 ))}
-                <span className="text-[11px] font-bold text-slate-400">+4 more</span>
+                <span className="text-[11px] font-bold text-slate-400">+ more soon</span>
               </div>
             </ScrollReveal>
           </div>
@@ -298,9 +298,8 @@ export default function LandingPage() {
             <motion.div
               key={card.title}
               variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-              className={`rounded-[1.75rem] p-8 flex flex-col items-center text-center gap-4 ${
-                card.highlight ? "bg-primary text-white" : "bg-slate-50 text-slate-900"
-              }`}
+              className={`rounded-[1.75rem] p-8 flex flex-col items-center text-center gap-4 ${card.highlight ? "bg-primary text-white" : "bg-slate-50 text-slate-900"
+                }`}
             >
               <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${card.highlight ? "bg-white/15" : "bg-white"}`}>
                 <card.icon className={`w-7 h-7 ${card.highlight ? "text-white" : "text-primary"}`} />
@@ -317,8 +316,8 @@ export default function LandingPage() {
         <ScrollReveal>
           <div className="bg-slate-50 rounded-[2rem] px-6 py-8 md:px-8 md:py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { label: "Active Students", value: 5200, suffix: "+" },
-              { label: "Partner Universities", value: 6, suffix: "" },
+              { label: "Active Students", value: 1258, suffix: "+" },
+              { label: "Partner Universities", value: 2, suffix: "" },
               { label: "App Features", value: 22, suffix: "+" },
               { label: "Looms Earn Rate", value: 10, suffix: "x" },
             ].map((s, i) => (
@@ -443,7 +442,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       <div id="faq">
         <FAQ />
@@ -490,8 +489,9 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Social</span>
-              <a href="#" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">LinkedIn</a>
-              <a href="#" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Twitter / X</a>
+              <a href="https://x.com/uniloomy_" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">X (Twitter)</a>
+              <a href="https://instagram.com/uniloomy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Instagram</a>
+              <a href="https://www.tiktok.com/@uniloomy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">TikTok</a>
             </div>
           </div>
         </div>

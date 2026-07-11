@@ -76,8 +76,8 @@ export const metadata: Metadata = {
   // Twitter / X Card
   twitter: {
     card: "summary_large_image",
-    site: "@uniloomy",
-    creator: "@uniloomy",
+    site: "@uniloomy_",
+    creator: "@uniloomy_",
     title: "Uniloomy — Learn Smarter. Earn Bigger. Connect Deeper.",
     description:
       "Ghana's all-in-one university super-app. AI study tools, student marketplace, campus gigs, UniClips, Looms rewards, and more.",
@@ -146,8 +146,9 @@ export default function RootLayout({
                 addressCountry: "GH",
               },
               sameAs: [
-                "https://twitter.com/uniloomy",
-                "https://linkedin.com/company/uniloomy",
+                "https://x.com/uniloomy_",
+                "https://instagram.com/uniloomy",
+                "https://www.tiktok.com/@uniloomy",
               ],
             }),
           }}

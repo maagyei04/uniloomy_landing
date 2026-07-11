@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { Flame } from "lucide-react";
 
 export default function LoomsTicker() {
-  const [count, setCount] = useState(184320);
+  const [count, setCount] = useState(3250);
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount((c) => c + Math.floor(Math.random() * 7) + 1);
+      setCount((c) => c + Math.floor(Math.random() * 2) + 1);
     }, 2400);
     return () => clearInterval(id);
   }, []);
