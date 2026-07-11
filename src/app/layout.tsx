@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -86,12 +86,6 @@ export const metadata: Metadata = {
 
   // PWA / Mobile meta
   manifest: "/manifest.json",
-  themeColor: "#1A237E",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
 
   // Robots
   robots: {
@@ -115,6 +109,13 @@ export const metadata: Metadata = {
   verification: {
     google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_KEY",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#1A237E",
 };
 
 export default function RootLayout({

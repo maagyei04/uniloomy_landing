@@ -51,7 +51,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 space-y-2 mt-2">
                 <li><strong className="text-white">Account Information:</strong> Full name, university email address, student ID (for verification), password (hashed), profile photo, and university/campus affiliation.</li>
                 <li><strong className="text-white">Profile Data:</strong> Course of study, academic year, bio, social links, and interests.</li>
-                <li><strong className="text-white">Financial Data:</strong> For marketplace and gig transactions — mobile money account details (e.g., MTN MoMo, Vodafone Cash, AirtelTigo Money), payment history. We do not store full card numbers.</li>
+                <li><strong className="text-white">Financial Data:</strong> Payments and escrow for Marketplace and Campus Gigs transactions are processed by <strong className="text-white">Moolre</strong>, our licensed third-party payment processor, which supports mobile money (MTN MoMo, Vodafone Cash, AirtelTigo Money) and card payments. We store transaction history and status, but do not store your full card numbers or mobile money PIN — those are handled directly by Moolre.</li>
                 <li><strong className="text-white">Content:</strong> Posts, comments, stories, UniClips, study materials, marketplace listings, gig postings, and messages you create.</li>
                 <li><strong className="text-white">Communication:</strong> Emails or messages you send to our support team.</li>
               </ul>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 space-y-2 mt-2">
                 <li><strong className="text-white">Device Information:</strong> Device type, operating system, unique device identifiers, mobile network, and IP address.</li>
                 <li><strong className="text-white">Usage Data:</strong> Features used, pages visited, time spent, app interactions, search queries, and click patterns.</li>
-                <li><strong className="text-white">Location Data:</strong> Approximate location derived from IP address. Precise GPS location only with your explicit consent (e.g., for housing listings nearby).</li>
+                <li><strong className="text-white">Location Data:</strong> We do not currently collect precise GPS location from your device. Location shown for Housing, Events, and Deals listings is text-based information entered by users (e.g., a hall or neighbourhood name), not device geolocation. If we introduce GPS-based features in future, we will request your explicit permission first and update this policy.</li>
                 <li><strong className="text-white">Log Data:</strong> Error logs, access timestamps, and crash reports.</li>
                 <li><strong className="text-white">Cookies & Similar Technologies:</strong> Authentication tokens, session cookies, and analytics identifiers. See Section 9 for details.</li>
               </ul>
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
           <Section title="4. Sharing Your Information">
             <p>We do not sell your personal data. We may share data in the following limited circumstances:</p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
-              <li><strong className="text-white">Service Providers:</strong> Cloud hosting (AWS/Firebase), payment processors (MTN MoMo API, Paystack), analytics providers (Mixpanel/Amplitude), and customer support tools — all bound by data processing agreements.</li>
+              <li><strong className="text-white">Service Providers:</strong> Cloud hosting infrastructure, our licensed payment processor <strong className="text-white">Moolre</strong> (for Marketplace and Campus Gigs transactions), push notification delivery (Expo/Google Firebase Cloud Messaging), and customer support tools — all bound by data processing agreements. We do not currently use third-party analytics or advertising SDKs in the app; if that changes, we will update this policy.</li>
               <li><strong className="text-white">University Partners:</strong> For student verification only, with your consent.</li>
               <li><strong className="text-white">Other Users:</strong> Public profile information, marketplace listings, posts, and UniClips you choose to make public.</li>
               <li><strong className="text-white">Legal Authorities:</strong> Where required by Ghanaian law (e.g., court orders, the Data Protection Commission, the Ghana Police Service) or to protect the rights and safety of users.</li>
@@ -186,6 +186,7 @@ export default function PrivacyPage() {
           <div className="flex gap-6">
             <Link href="/privacy" className="text-blue-500">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/community-guidelines" className="hover:text-white transition-colors">Community Guidelines</Link>
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
           </div>
         </div>

@@ -61,7 +61,7 @@ export default function TermsPage() {
           </Section>
 
           <Section title="3. Acceptable Use Policy">
-            <p>You agree to use the Service lawfully and in good faith. You <strong className="text-white">must not</strong>:</p>
+            <p>You agree to use the Service lawfully and in good faith, and in accordance with our <Link href="/community-guidelines" className="text-blue-400 underline">Community Guidelines</Link>, which are incorporated into these Terms by reference. You <strong className="text-white">must not</strong>:</p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>Post content that is unlawful, defamatory, obscene, threatening, or violates another person&apos;s rights.</li>
               <li>Share, distribute, or reproduce copyrighted material without appropriate authorisation.</li>
@@ -81,6 +81,8 @@ export default function TermsPage() {
               <li>Uniloomy provides a platform for peer-to-peer transactions. We are not a party to any transaction between buyers and sellers or employers and service providers.</li>
               <li>All listings must be accurate, honest, and compliant with our Acceptable Use Policy.</li>
               <li>Uniloomy does not guarantee the quality, safety, or legality of items listed or services offered.</li>
+              <li><strong className="text-white">Escrow &amp; Payments:</strong> Funds for Campus Gigs and Marketplace transactions are held in escrow and processed by <strong className="text-white">Moolre</strong>, a licensed third-party payment service provider. Uniloomy does not directly hold or custody user funds. A service fee of up to <strong className="text-white">5%</strong> of the transaction value applies to escrowed Campus Gigs payments and is disclosed before you confirm payment.</li>
+              <li>Escrowed funds are released to the seller or service provider once the buyer confirms satisfactory completion, or automatically after the applicable confirmation window closes without a dispute being raised.</li>
               <li>Payment disputes must first be raised through Uniloomy&apos;s in-app dispute resolution system. Uniloomy&apos;s decisions in such disputes are final and binding on both parties.</li>
               <li>All financial transactions on the platform are subject to Ghana&apos;s <strong className="text-white">Payment Systems and Services Act, 2019 (Act 987)</strong>.</li>
               <li>Users are solely responsible for any taxes applicable to their earnings through the platform in accordance with Ghana Revenue Authority (GRA) regulations.</li>
@@ -191,6 +193,7 @@ export default function TermsPage() {
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-blue-500">Terms of Service</Link>
+            <Link href="/community-guidelines" className="hover:text-white transition-colors">Community Guidelines</Link>
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
           </div>
         </div>

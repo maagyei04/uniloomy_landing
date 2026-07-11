@@ -25,6 +25,7 @@ import {
   ShieldCheck,
   Flame,
   Trophy,
+  FlaskConical,
 } from "lucide-react";
 
 import DownloadCTA from "@/components/DownloadCTA";
@@ -451,11 +452,15 @@ export default function LandingPage() {
       {/* ── Final CTA ────────────────────────────────────────────────────── */}
       <section id="download" className="w-full max-w-4xl mx-auto py-20 md:py-32 text-center px-6">
         <ScrollReveal direction="scale">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-xs font-bold text-primary uppercase tracking-widest mb-6">
+            <FlaskConical className="w-3.5 h-3.5" />
+            Currently in Private Beta
+          </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-slate-900 mb-6 tracking-tight">
             Uniloomy. Campus Redefined.
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
-            Join thousands of students learning smarter and earning bigger across Ghana.
+            We're not on the App Store or Google Play yet — join the beta now via TestFlight or Google Play Closed Testing and help shape the app before launch.
           </p>
           <div className="flex justify-center max-w-md mx-auto">
             <DownloadCTA />
@@ -481,6 +486,7 @@ export default function LandingPage() {
               <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Legal</span>
               <Link href="/privacy" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Terms & Conditions</Link>
+              <Link href="/community-guidelines" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Community Guidelines</Link>
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Social</span>

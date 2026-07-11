@@ -42,6 +42,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/community-guidelines",
+      "regex": "^/community\\-guidelines(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/community\\-guidelines(?:/)?$"
+    },
+    {
       "page": "/favicon.ico",
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},
