@@ -6,9 +6,8 @@ import { Download } from "lucide-react";
 // TODO: replace with the real TestFlight public link and Google Play closed-testing opt-in URL.
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/wN1q1yzJ";
 const PLAY_TESTING_URL = "https://play.google.com/apps/testing/com.michantech.uniloomy";
-// TODO: replace with your EAS Build "internal distribution" artifact link (expo.dev build page),
-// not a raw APK file hosted on this site — update this whenever you cut a new test build.
-const APK_URL = "https://expo.dev/accounts/uniloomy/projects/uniloomy/builds/REPLACE_WITH_BUILD_ID";
+// EAS Build "internal distribution" artifact link — update this whenever you cut a new test build.
+const APK_URL = "https://expo.dev/accounts/ybliss/projects/uniloomy/builds/d0c18309-2388-471e-967f-3122ca3578ac";
 
 export default function DownloadCTA() {
   return (
