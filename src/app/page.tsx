@@ -25,7 +25,7 @@ import {
   ShieldCheck,
   Flame,
   Trophy,
-  FlaskConical,
+  BadgeCheck,
 } from "lucide-react";
 
 import DownloadCTA from "@/components/DownloadCTA";
@@ -41,6 +41,7 @@ import CampusMap from "@/components/CampusMap";
 import Testimonials from "@/components/Testimonials";
 import Leaderboard from "@/components/Leaderboard";
 import FAQ from "@/components/FAQ";
+import SellOnUniloomy from "@/components/SellOnUniloomy";
 
 const TRUST_UNIS = [
   { src: "/assets/universities/knust.png", alt: "KNUST" },
@@ -51,6 +52,7 @@ const TRUST_UNIS = [
 
 const NAV_LINKS = [
   { href: "#features", label: "Ecosystem" },
+  { href: "#sell", label: "Sell" },
   { href: "#how", label: "How it Works" },
   { href: "#looms", label: "Looms" },
   { href: "#faq", label: "FAQ" },
@@ -390,6 +392,8 @@ export default function LandingPage() {
         </ScrollReveal>
       </section>
 
+      <SellOnUniloomy />
+
       {/* ── How it Works ─────────────────────────────────────────────────── */}
       <section id="how" className="w-full max-w-6xl mx-auto py-16 md:py-28 px-6">
         <ScrollReveal className="text-center mb-16">
@@ -452,14 +456,15 @@ export default function LandingPage() {
       <section id="download" className="w-full max-w-4xl mx-auto py-20 md:py-32 text-center px-6">
         <ScrollReveal direction="scale">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-xs font-bold text-primary uppercase tracking-widest mb-6">
-            <FlaskConical className="w-3.5 h-3.5" />
-            Currently in Private Beta
+            <BadgeCheck className="w-3.5 h-3.5" />
+            Now Live on iOS
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-slate-900 mb-6 tracking-tight">
             Uniloomy. Campus Redefined.
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
-            We're not on the App Store or Google Play yet — join the beta now via TestFlight or Google Play Closed Testing and help shape the app before launch.
+            Uniloomy is available now on the App Store. Android is still in closed beta —
+            join as a tester and help shape the app before its public launch.
           </p>
           <div className="flex justify-center max-w-md mx-auto">
             <DownloadCTA />

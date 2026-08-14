@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 
-// TODO: replace with the real TestFlight public link and Google Play closed-testing opt-in URL.
-const TESTFLIGHT_URL = "https://testflight.apple.com/join/wN1q1yzJ";
+const APP_STORE_URL = "https://apps.apple.com/gh/app/uniloomy/id6781010364";
 const PLAY_TESTING_URL = "https://play.google.com/apps/testing/com.michantech.uniloomy";
 // EAS Build "internal distribution" artifact link — update this whenever you cut a new test build.
 const APK_URL = "https://expo.dev/accounts/ybliss/projects/uniloomy/builds/d0c18309-2388-471e-967f-3122ca3578ac";
@@ -16,7 +15,7 @@ export default function DownloadCTA() {
         <motion.a
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          href={TESTFLIGHT_URL}
+          href={APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-slate-900 text-white shadow-xl shadow-slate-900/10 border border-slate-800 transition-colors hover:bg-slate-800"
@@ -26,8 +25,8 @@ export default function DownloadCTA() {
             <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
           </svg>
           <span className="flex flex-col items-start leading-tight">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-white/60">Join via TestFlight</span>
-            <span className="text-sm font-black uppercase tracking-widest">iOS Beta</span>
+            <span className="text-[9px] font-bold uppercase tracking-widest text-white/60">Download on the</span>
+            <span className="text-sm font-black uppercase tracking-widest">App Store</span>
           </span>
         </motion.a>
 
@@ -50,7 +49,8 @@ export default function DownloadCTA() {
         </motion.a>
       </div>
       <p className="text-xs text-slate-400 font-medium">
-        Uniloomy is in private beta — joining adds you as a tester via Apple TestFlight or Google Play, no app store listing yet.
+        Uniloomy is live on the App Store for iOS. Android is still in closed beta via Google
+        Play — join as a tester above, no app store listing yet.
       </p>
 
       <a
