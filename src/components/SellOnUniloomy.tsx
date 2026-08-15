@@ -42,7 +42,7 @@ export default function SellOnUniloomy() {
                 rel="noopener noreferrer"
                 className="pill bg-white text-primary shadow-lg hover:bg-white/90 transition-colors"
               >
-                Create Your Storefront <ArrowRight className="w-4 h-4 ml-2" />
+                Start Selling <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
               <Link
                 href={BUSINESS_LOGIN_URL}
@@ -56,7 +56,7 @@ export default function SellOnUniloomy() {
 
             <p className="text-white/50 text-xs font-medium flex items-center justify-center lg:justify-start gap-1.5">
               <BadgeCheck className="w-3.5 h-3.5 shrink-0" />
-              Same account as the Uniloomy app — you&apos;re a student first, storefront owner second.
+              Students set up a storefront on their existing account. Brands register separately for a verified business page.
             </p>
           </div>
 
